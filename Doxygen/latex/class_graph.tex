@@ -1,0 +1,314 @@
+\hypertarget{class_graph}{}\doxysection{Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_graph}\index{Graph$<$ T $>$@{Graph$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}{$\sim$\+Graph}} ()
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{find\+Vertex}} (const T \&in) const
+\item 
+bool \mbox{\hyperlink{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}{add\+Vertex}} (const T \&in)
+\item 
+bool \mbox{\hyperlink{class_graph_af9c903104ad69a7782979fa9caedf163}{remove\+Vertex}} (const T \&in)
+\item 
+bool \mbox{\hyperlink{class_graph_a403d25d50184c52280acef246c1b202e}{add\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$v)
+\item 
+double \mbox{\hyperlink{class_graph_a956de901950f99eee85d6d18b9758107}{get\+Min\+Pipe\+Usg}} () const
+\item 
+void \mbox{\hyperlink{class_graph_a20162822ae08c49d4b0620a7d4131c16}{set\+Min\+Pipe\+Usg}} (double \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{min\+Pipe\+Usg}})
+\item 
+double \mbox{\hyperlink{class_graph_a557b38eb7c55cd2f7f31c2526b07f3e2}{get\+Max\+Pipe\+Usg}} () const
+\item 
+void \mbox{\hyperlink{class_graph_a1868f80113fe9259c7ed126bdd59fd1a}{set\+Max\+Pipe\+Usg}} (double \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{max\+Pipe\+Usg}})
+\item 
+double \mbox{\hyperlink{class_graph_a663ffd56bc4c179851d5adfde7d26a30}{get\+Avg\+Pipe\+Usg}} () const
+\item 
+void \mbox{\hyperlink{class_graph_ac3ec35e54d01a125d21fbdd8c0931ccb}{set\+Avg\+Pipe\+Usg}} (double \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avg\+Pipe\+Usg}})
+\item 
+bool \mbox{\hyperlink{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}{add\+Edge}} (const T \&sourc, const T \&dest, double w)
+\item 
+bool \mbox{\hyperlink{class_graph_a8949d071d45bf93e171e275462e1007a}{remove\+Edge}} (const T \&source, const T \&dest)
+\item 
+bool \mbox{\hyperlink{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}{add\+Bidirectional\+Edge}} (const T \&sourc, const T \&dest, double w)
+\item 
+int \mbox{\hyperlink{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}{get\+Num\+Vertex}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_graph_a41624b03fcb6bd29e4df574a1ec58541}{get\+Vertex\+Set}} () const
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph_a1243f481d9929b890dbafe18cc3d8259}{dfs}} () const
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph_a4e6e8c33823d6d45d2ab201d64b39483}{dfs}} (const T \&source) const
+\item 
+void \mbox{\hyperlink{class_graph_a468b6d9b6b1899d4c885324ed14e4f8a}{dfs\+Visit}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$v, std\+::vector$<$ T $>$ \&res) const
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph_a4b211a9a1e49216603e6a676df8138ec}{bfs}} (const T \&source) const
+\item 
+bool \mbox{\hyperlink{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}{is\+DAG}} () const
+\item 
+bool \mbox{\hyperlink{class_graph_a06743c0b3e219cfeefa5aade38556cb7}{dfs\+Is\+DAG}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$v) const
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph_ab8c7720cd8fcba892d4550494e91b8d4}{topsort}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avg\+Pipe\+Usg}}
+\begin{DoxyCompactList}\small\item\em Valor que representa a media de percentagem de utilizacao dos pipes em todo o graph. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{min\+Pipe\+Usg}}
+\begin{DoxyCompactList}\small\item\em Valor que representa a percentagem mais pequena de utilizacao de um pipe em todo o graph. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{max\+Pipe\+Usg}}
+\begin{DoxyCompactList}\small\item\em Valor que representa a percentagem mais elevada de utilizacao de um pipe em todo o graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a676cdfb976eccfa82b631d2094c1cdac}{find\+Vertex\+Idx}} (const T \&in) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}{vertex\+Set}}
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}{dist\+Matrix}} = nullptr
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}{path\+Matrix}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}\label{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!````~Graph@{$\sim$Graph}}
+\index{````~Graph@{$\sim$Graph}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph()}{~Graph()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_graph}{Graph}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}\label{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc,  }\item[{const T \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}\label{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc,  }\item[{const T \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}\label{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_a403d25d50184c52280acef246c1b202e}\label{class_graph_a403d25d50184c52280acef246c1b202e}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a4b211a9a1e49216603e6a676df8138ec}\label{class_graph_a4b211a9a1e49216603e6a676df8138ec}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::bfs (\begin{DoxyParamCaption}\item[{const T \&}]{source }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a1243f481d9929b890dbafe18cc3d8259}\label{class_graph_a1243f481d9929b890dbafe18cc3d8259}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs}
+
+\mbox{\Hypertarget{class_graph_a4e6e8c33823d6d45d2ab201d64b39483}\label{class_graph_a4e6e8c33823d6d45d2ab201d64b39483}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs (\begin{DoxyParamCaption}\item[{const T \&}]{source }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a06743c0b3e219cfeefa5aade38556cb7}\label{class_graph_a06743c0b3e219cfeefa5aade38556cb7}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfsIsDAG@{dfsIsDAG}}
+\index{dfsIsDAG@{dfsIsDAG}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfsIsDAG()}{dfsIsDAG()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs\+Is\+DAG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$}]{v }\end{DoxyParamCaption}) const}
+
+Auxiliary function that visits a vertex (v) and its adjacent, recursively. Returns false (not acyclic) if an edge to a vertex in the stack is found. \mbox{\Hypertarget{class_graph_a468b6d9b6b1899d4c885324ed14e4f8a}\label{class_graph_a468b6d9b6b1899d4c885324ed14e4f8a}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfsVisit@{dfsVisit}}
+\index{dfsVisit@{dfsVisit}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfsVisit()}{dfsVisit()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs\+Visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$}]{v,  }\item[{std\+::vector$<$ T $>$ \&}]{res }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}\label{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a676cdfb976eccfa82b631d2094c1cdac}\label{class_graph_a676cdfb976eccfa82b631d2094c1cdac}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertexIdx@{findVertexIdx}}
+\index{findVertexIdx@{findVertexIdx}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::find\+Vertex\+Idx (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_a663ffd56bc4c179851d5adfde7d26a30}\label{class_graph_a663ffd56bc4c179851d5adfde7d26a30}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getAvgPipeUsg@{getAvgPipeUsg}}
+\index{getAvgPipeUsg@{getAvgPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAvgPipeUsg()}{getAvgPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Avg\+Pipe\+Usg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a557b38eb7c55cd2f7f31c2526b07f3e2}\label{class_graph_a557b38eb7c55cd2f7f31c2526b07f3e2}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getMaxPipeUsg@{getMaxPipeUsg}}
+\index{getMaxPipeUsg@{getMaxPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMaxPipeUsg()}{getMaxPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Max\+Pipe\+Usg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a956de901950f99eee85d6d18b9758107}\label{class_graph_a956de901950f99eee85d6d18b9758107}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getMinPipeUsg@{getMinPipeUsg}}
+\index{getMinPipeUsg@{getMinPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMinPipeUsg()}{getMinPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Min\+Pipe\+Usg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}\label{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Num\+Vertex}
+
+\mbox{\Hypertarget{class_graph_a41624b03fcb6bd29e4df574a1ec58541}\label{class_graph_a41624b03fcb6bd29e4df574a1ec58541}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Vertex\+Set}
+
+\mbox{\Hypertarget{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}\label{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!isDAG@{isDAG}}
+\index{isDAG@{isDAG}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isDAG()}{isDAG()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::is\+DAG}
+
+\mbox{\Hypertarget{class_graph_a8949d071d45bf93e171e275462e1007a}\label{class_graph_a8949d071d45bf93e171e275462e1007a}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{source,  }\item[{const T \&}]{dest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_af9c903104ad69a7782979fa9caedf163}\label{class_graph_af9c903104ad69a7782979fa9caedf163}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_ac3ec35e54d01a125d21fbdd8c0931ccb}\label{class_graph_ac3ec35e54d01a125d21fbdd8c0931ccb}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!setAvgPipeUsg@{setAvgPipeUsg}}
+\index{setAvgPipeUsg@{setAvgPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAvgPipeUsg()}{setAvgPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::set\+Avg\+Pipe\+Usg (\begin{DoxyParamCaption}\item[{double}]{avg\+Pipe\+Usg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a1868f80113fe9259c7ed126bdd59fd1a}\label{class_graph_a1868f80113fe9259c7ed126bdd59fd1a}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!setMaxPipeUsg@{setMaxPipeUsg}}
+\index{setMaxPipeUsg@{setMaxPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setMaxPipeUsg()}{setMaxPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::set\+Max\+Pipe\+Usg (\begin{DoxyParamCaption}\item[{double}]{max\+Pipe\+Usg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_a20162822ae08c49d4b0620a7d4131c16}\label{class_graph_a20162822ae08c49d4b0620a7d4131c16}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!setMinPipeUsg@{setMinPipeUsg}}
+\index{setMinPipeUsg@{setMinPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setMinPipeUsg()}{setMinPipeUsg()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::set\+Min\+Pipe\+Usg (\begin{DoxyParamCaption}\item[{double}]{min\+Pipe\+Usg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph_ab8c7720cd8fcba892d4550494e91b8d4}\label{class_graph_ab8c7720cd8fcba892d4550494e91b8d4}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!topsort@{topsort}}
+\index{topsort@{topsort}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{topsort()}{topsort()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::topsort}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_a7d248516493034642f7a7c660fc093c0}\label{class_graph_a7d248516493034642f7a7c660fc093c0}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!avgPipeUsg@{avgPipeUsg}}
+\index{avgPipeUsg@{avgPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{avgPipeUsg}{avgPipeUsg}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::avg\+Pipe\+Usg}
+
+
+
+Valor que representa a media de percentagem de utilizacao dos pipes em todo o graph. 
+
+\mbox{\Hypertarget{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}\label{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double$\ast$$\ast$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_adc636ab70032ce2bfc94d8f1221038e9}\label{class_graph_adc636ab70032ce2bfc94d8f1221038e9}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!maxPipeUsg@{maxPipeUsg}}
+\index{maxPipeUsg@{maxPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{maxPipeUsg}{maxPipeUsg}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::max\+Pipe\+Usg}
+
+
+
+Valor que representa a percentagem mais elevada de utilizacao de um pipe em todo o graph. 
+
+\mbox{\Hypertarget{class_graph_aa229c9e9121526eb3e481c16cc528b5d}\label{class_graph_aa229c9e9121526eb3e481c16cc528b5d}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!minPipeUsg@{minPipeUsg}}
+\index{minPipeUsg@{minPipeUsg}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{minPipeUsg}{minPipeUsg}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::min\+Pipe\+Usg}
+
+
+
+Valor que representa a percentagem mais pequena de utilizacao de um pipe em todo o graph. 
+
+\mbox{\Hypertarget{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}\label{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int$\ast$$\ast$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}\label{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}}$<$T$>$ $\ast$$>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/filipegaio/\+Desktop/\+FEUP/\+DA/\+PROJ/\+Water\+Management\+DA/src/data\+\_\+structures/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

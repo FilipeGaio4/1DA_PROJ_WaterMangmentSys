@@ -1,0 +1,70 @@
+\hypertarget{_management_system_8h_source}{}\doxysection{Management\+System.\+h}
+\label{_management_system_8h_source}\index{/home/filipegaio/Desktop/FEUP/DA/PROJ/WaterManagementDA/src/ManagementSystem.h@{/home/filipegaio/Desktop/FEUP/DA/PROJ/WaterManagementDA/src/ManagementSystem.h}}
+\mbox{\hyperlink{_management_system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef WATERMANAGEMENTDA\_MANAGEMENTSYSTEM\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define WATERMANAGEMENTDA\_MANAGEMENTSYSTEM\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_graph_8h}{data\_structures/Graph.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_management_system}{ManagementSystem}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_graph}{Graph<string>}} network; }
+\DoxyCodeLine{20     vector<Vertex<string>*> cities; }
+\DoxyCodeLine{21     vector<Vertex<string>*> reservoirs; }
+\DoxyCodeLine{22     vector<Vertex<string>*> stations; }
+\DoxyCodeLine{23     vector<Vertex<string>*> ignoreVertex; }
+\DoxyCodeLine{24     vector<Edge<string>*> ignoreEdge; }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keyword}{const} vector<Edge<string> *> \&\mbox{\hyperlink{class_management_system_aa24c4e824050d0a9f0007414af502241}{getIgnoreEdge}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_aaaeabc4d55c6a5383c0ebb55eb1a5b4a}{setIgnoreEdge}}(\textcolor{keyword}{const} vector<\mbox{\hyperlink{class_edge}{Edge<string>}} *> \&ignoreEdge);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     vector<Vertex<string> *> \mbox{\hyperlink{class_management_system_a62620cc17a2d405ab798de6628341be0}{getIgnoreVertex}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_acb7a26a215bdd6cd9b4349a9fc2c3b7f}{setIgnoreVertex}}(\textcolor{keyword}{const} vector<\mbox{\hyperlink{class_vertex}{Vertex<string>}} *> \&ignoreVertex);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a9814c1f964f74b6e3e9ad853f3be6fb4}{addIgnoreVertex}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}} * vertex);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ae42d18730ed01fdee9b1690b1b66c077}{removeIgnoreVertex}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}} * vertex);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a3a5e74d30be98820512a606c1715071e}{readCities}}(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_addb5a2cc67f364d3fdbe82ffa1c0c329}{readPipes}}(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a137183dabe15d7d97c922f072e42a3b0}{readReservoirs}}(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ae69e34e8a94c1366f7c7684e3493cfb7}{readStations}}(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a0853a399e4f85956e8fb9b84509a8247}{edmondsKarp}}(\textcolor{keywordtype}{string} srcCode, \textcolor{keywordtype}{string} destCode);}
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a0853a399e4f85956e8fb9b84509a8247}{edmondsKarp}}(\mbox{\hyperlink{class_graph}{Graph<string>}}\& network, \textcolor{keywordtype}{string} srcCode, \textcolor{keywordtype}{string} destCode);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_management_system_a3e4ae561a4137066f749816d9452c7ca}{findAugmentingPath}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}}* src , \mbox{\hyperlink{class_vertex}{Vertex<string>}}* dest );}
+\DoxyCodeLine{96     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_management_system_a3e4ae561a4137066f749816d9452c7ca}{findAugmentingPath}}(\mbox{\hyperlink{class_graph}{Graph<string>}}\& network, \mbox{\hyperlink{class_vertex}{Vertex<string>}}* src , \mbox{\hyperlink{class_vertex}{Vertex<string>}}* dest );}
+\DoxyCodeLine{103     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_management_system_af2c2f40e1274a2ef03bcf3f80bab92ec}{minResidualPath}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}}* src , \mbox{\hyperlink{class_vertex}{Vertex<string>}}* dest );}
+\DoxyCodeLine{107     \textcolor{keyword}{const} \mbox{\hyperlink{class_graph}{Graph<string>}} \&\mbox{\hyperlink{class_management_system_a46f99efbdbabd0074e6a3e36e7b863ed}{getNetwork}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a6577f9faa445def2709efce7881f07cd}{setNetwork}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_graph}{Graph<string>}} \&network);}
+\DoxyCodeLine{115     \textcolor{keyword}{const} vector<Vertex<string> *> \&\mbox{\hyperlink{class_management_system_a76aba5fc7f1d748f6c4e4ce019037821}{getCities}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a9418124b429c44b8f61526cbadff93f0}{setCities}}(\textcolor{keyword}{const} vector<\mbox{\hyperlink{class_vertex}{Vertex<string>}} *> \&cities);}
+\DoxyCodeLine{123     \textcolor{keyword}{const} vector<Vertex<string> *> \&\mbox{\hyperlink{class_management_system_aca62268cdf398a65cc86dbd2c623af20}{getReservoirs}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a53429efc9e878c721b7c4ccc7287c511}{setReservoirs}}(\textcolor{keyword}{const} vector<\mbox{\hyperlink{class_vertex}{Vertex<string>}} *> \&reservoirs);}
+\DoxyCodeLine{131     \textcolor{keyword}{const} vector<Vertex<string> *> \&\mbox{\hyperlink{class_management_system_a4e2fb19ce0fd242816d75611ec07bc33}{getStations}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_acf9cd6c181248f3f01d5c1748299a8e8}{setStations}}(\textcolor{keyword}{const} vector<\mbox{\hyperlink{class_vertex}{Vertex<string>}} *> \&stations);}
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a0fcfd5c2f1f6f1b58f688ea684300b00}{createSuperSource}}();}
+\DoxyCodeLine{147     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ac537c5f0bbc9a25abea9bb685c4586f9}{createSuperSink}}();}
+\DoxyCodeLine{154     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a0fcfd5c2f1f6f1b58f688ea684300b00}{createSuperSource}}(\mbox{\hyperlink{class_graph}{Graph<string>}}\& network);}
+\DoxyCodeLine{161     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ac537c5f0bbc9a25abea9bb685c4586f9}{createSuperSink}}(\mbox{\hyperlink{class_graph}{Graph<string>}}\& network);}
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ad0fc5560074dd95043014405a38d6e2e}{removeReservoir}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{168     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a6048a639f03445545a4001338c46331e}{resetIgnore}}();}
+\DoxyCodeLine{169     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a23da77d35e54cd77c32ad19f6757f522}{setIgnore}}(vector<\mbox{\hyperlink{class_vertex}{Vertex<string>}}*> vertexes);}
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_aa004378fd00ea13f69b07e9388e5c7b6}{printFilter}}();}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_ad7a763eee70871ce81aee7e08879cc72}{cleanFilter}}();}
+\DoxyCodeLine{182     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a3df2d978886b02a543f7a1ab0a7f7e4b}{addIgnoreEdge}}(\mbox{\hyperlink{class_edge}{Edge<string>}} *edge);}
+\DoxyCodeLine{186     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a8ca1098feceaf8f25d9f75829ae07a56}{removeIgnoreEdge}}(\mbox{\hyperlink{class_edge}{Edge<string>}} *edge);}
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a282c91d8a892482d2124e19f7e8425ed}{saveVals}}(\textcolor{keywordtype}{double} avg, \textcolor{keywordtype}{double} min, \textcolor{keywordtype}{double} max);}
+\DoxyCodeLine{198     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_management_system_a1d3aaf44f29d4dbfc59b24a8c71484bd}{avgPipeUsage}}(\textcolor{keywordtype}{double} *min, \textcolor{keywordtype}{double} *max, \textcolor{keywordtype}{bool} first);}
+\DoxyCodeLine{206     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_management_system_a0853a399e4f85956e8fb9b84509a8247}{edmondsKarp}}(\textcolor{keywordtype}{string} srcCode, \textcolor{keywordtype}{string} destCode, \textcolor{keywordtype}{double} avg);}
+\DoxyCodeLine{214     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_management_system_aee997d2ade8302523bf376e123c4ab0a}{minResidualPath}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}} *src, \mbox{\hyperlink{class_vertex}{Vertex<string>}} *dest, \textcolor{keywordtype}{double} avg);}
+\DoxyCodeLine{223     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_management_system_a3e4ae561a4137066f749816d9452c7ca}{findAugmentingPath}}(\mbox{\hyperlink{class_vertex}{Vertex<string>}} *src, \mbox{\hyperlink{class_vertex}{Vertex<string>}} *dest, \textcolor{keywordtype}{double} avg);}
+\DoxyCodeLine{224 \};}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//WATERMANAGEMENTDA\_MANAGEMENTSYSTEM\_H}}
+
+\end{DoxyCode}

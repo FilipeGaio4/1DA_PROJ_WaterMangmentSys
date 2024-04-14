@@ -1,0 +1,536 @@
+\hypertarget{class_management_system}{}\doxysection{Management\+System Class Reference}
+\label{class_management_system}\index{ManagementSystem@{ManagementSystem}}
+
+
+{\ttfamily \#include $<$Management\+System.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$ $>$ \& \mbox{\hyperlink{class_management_system_aa24c4e824050d0a9f0007414af502241}{get\+Ignore\+Edge}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_aaaeabc4d55c6a5383c0ebb55eb1a5b4a}{set\+Ignore\+Edge}} (const vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$ $>$ \&ignore\+Edge)
+\item 
+vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \mbox{\hyperlink{class_management_system_a62620cc17a2d405ab798de6628341be0}{get\+Ignore\+Vertex}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_acb7a26a215bdd6cd9b4349a9fc2c3b7f}{set\+Ignore\+Vertex}} (const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&ignore\+Vertex)
+\item 
+void \mbox{\hyperlink{class_management_system_a9814c1f964f74b6e3e9ad853f3be6fb4}{add\+Ignore\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$vertex)
+\item 
+void \mbox{\hyperlink{class_management_system_ae42d18730ed01fdee9b1690b1b66c077}{remove\+Ignore\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$vertex)
+\item 
+void \mbox{\hyperlink{class_management_system_a3a5e74d30be98820512a606c1715071e}{read\+Cities}} (string filename)
+\item 
+void \mbox{\hyperlink{class_management_system_addb5a2cc67f364d3fdbe82ffa1c0c329}{read\+Pipes}} (string filename)
+\item 
+void \mbox{\hyperlink{class_management_system_a137183dabe15d7d97c922f072e42a3b0}{read\+Reservoirs}} (string filename)
+\item 
+void \mbox{\hyperlink{class_management_system_ae69e34e8a94c1366f7c7684e3493cfb7}{read\+Stations}} (string filename)
+\item 
+void \mbox{\hyperlink{class_management_system_a0853a399e4f85956e8fb9b84509a8247}{edmonds\+Karp}} (string src\+Code, string dest\+Code)
+\item 
+void \mbox{\hyperlink{class_management_system_a54bece73987cfcd0e694eb0fde4472f8}{edmonds\+Karp}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&network, string src\+Code, string dest\+Code)
+\item 
+bool \mbox{\hyperlink{class_management_system_a3e4ae561a4137066f749816d9452c7ca}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$dest)
+\item 
+bool \mbox{\hyperlink{class_management_system_a5d23e9924fef41fbfe2ac63da0792652}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&network, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$dest)
+\item 
+double \mbox{\hyperlink{class_management_system_af2c2f40e1274a2ef03bcf3f80bab92ec}{min\+Residual\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$dest)
+\item 
+const \mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \& \mbox{\hyperlink{class_management_system_a46f99efbdbabd0074e6a3e36e7b863ed}{get\+Network}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_a6577f9faa445def2709efce7881f07cd}{set\+Network}} (const \mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&network)
+\item 
+const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& \mbox{\hyperlink{class_management_system_a76aba5fc7f1d748f6c4e4ce019037821}{get\+Cities}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_a9418124b429c44b8f61526cbadff93f0}{set\+Cities}} (const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&cities)
+\item 
+const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& \mbox{\hyperlink{class_management_system_aca62268cdf398a65cc86dbd2c623af20}{get\+Reservoirs}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_a53429efc9e878c721b7c4ccc7287c511}{set\+Reservoirs}} (const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&reservoirs)
+\item 
+const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& \mbox{\hyperlink{class_management_system_a4e2fb19ce0fd242816d75611ec07bc33}{get\+Stations}} () const
+\item 
+void \mbox{\hyperlink{class_management_system_acf9cd6c181248f3f01d5c1748299a8e8}{set\+Stations}} (const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&stations)
+\item 
+void \mbox{\hyperlink{class_management_system_a0fcfd5c2f1f6f1b58f688ea684300b00}{create\+Super\+Source}} ()
+\item 
+void \mbox{\hyperlink{class_management_system_ac537c5f0bbc9a25abea9bb685c4586f9}{create\+Super\+Sink}} ()
+\item 
+void \mbox{\hyperlink{class_management_system_aadef5fd81d83600a3975f62d9c196705}{create\+Super\+Source}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&network)
+\item 
+void \mbox{\hyperlink{class_management_system_aecd971f0e72c32ff3a99fcbbd0d833a5}{create\+Super\+Sink}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&network)
+\item 
+void \mbox{\hyperlink{class_management_system_ad0fc5560074dd95043014405a38d6e2e}{remove\+Reservoir}} (string code)
+\item 
+void \mbox{\hyperlink{class_management_system_a6048a639f03445545a4001338c46331e}{reset\+Ignore}} ()
+\item 
+void \mbox{\hyperlink{class_management_system_a23da77d35e54cd77c32ad19f6757f522}{set\+Ignore}} (vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ vertexes)
+\item 
+void \mbox{\hyperlink{class_management_system_aa004378fd00ea13f69b07e9388e5c7b6}{print\+Filter}} ()
+\item 
+void \mbox{\hyperlink{class_management_system_ad7a763eee70871ce81aee7e08879cc72}{clean\+Filter}} ()
+\item 
+void \mbox{\hyperlink{class_management_system_a3df2d978886b02a543f7a1ab0a7f7e4b}{add\+Ignore\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$edge)
+\item 
+void \mbox{\hyperlink{class_management_system_a8ca1098feceaf8f25d9f75829ae07a56}{remove\+Ignore\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$edge)
+\item 
+void \mbox{\hyperlink{class_management_system_a282c91d8a892482d2124e19f7e8425ed}{save\+Vals}} (double avg, double min, double max)
+\item 
+double \mbox{\hyperlink{class_management_system_a1d3aaf44f29d4dbfc59b24a8c71484bd}{avg\+Pipe\+Usage}} (double $\ast$min, double $\ast$max, bool first)
+\item 
+void \mbox{\hyperlink{class_management_system_a59094a0558b7341732a12ef670a65070}{edmonds\+Karp}} (string src\+Code, string dest\+Code, double avg)
+\item 
+double \mbox{\hyperlink{class_management_system_aee997d2ade8302523bf376e123c4ab0a}{min\+Residual\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$dest, double avg)
+\item 
+bool \mbox{\hyperlink{class_management_system_a42b33cc2be545791656ec5479ff48b54}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$src, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$dest, double avg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que define um objeto do tipo \mbox{\hyperlink{class_management_system}{Management\+System}}. Um objeto desta classe tem 6 membros privados. Um grafo do tipo string que representa a rede de água. 4 vetores de \mbox{\hyperlink{class_vertex}{Vertex}} e 1 de Edges. 3 dos vetores de \mbox{\hyperlink{class_vertex}{Vertex}} armazenam as cidades, reservatórios e estações. 1 vetor de \mbox{\hyperlink{class_vertex}{Vertex}} armazena os vértices ignorados. O vetor de Edges armazena os edges (pipes) ignorados. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_management_system_a3df2d978886b02a543f7a1ab0a7f7e4b}\label{class_management_system_a3df2d978886b02a543f7a1ab0a7f7e4b}} 
+\index{ManagementSystem@{ManagementSystem}!addIgnoreEdge@{addIgnoreEdge}}
+\index{addIgnoreEdge@{addIgnoreEdge}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{addIgnoreEdge()}{addIgnoreEdge()}}
+{\footnotesize\ttfamily void Management\+System\+::add\+Ignore\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$}]{edge }\end{DoxyParamCaption})}
+
+Função que adiciona um edge ao vetor ignore\+Edge e coloca o seu atributo ignore a true. 
+\begin{DoxyParams}{Parameters}
+{\em edge} & edge a adicionar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a9814c1f964f74b6e3e9ad853f3be6fb4}\label{class_management_system_a9814c1f964f74b6e3e9ad853f3be6fb4}} 
+\index{ManagementSystem@{ManagementSystem}!addIgnoreVertex@{addIgnoreVertex}}
+\index{addIgnoreVertex@{addIgnoreVertex}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{addIgnoreVertex()}{addIgnoreVertex()}}
+{\footnotesize\ttfamily void Management\+System\+::add\+Ignore\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{vertex }\end{DoxyParamCaption})}
+
+Função que adiciona um vértice ao vetor ignore\+Vertex e coloca o seu atributo ignore a true. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & vértice a adicionar. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a1d3aaf44f29d4dbfc59b24a8c71484bd}\label{class_management_system_a1d3aaf44f29d4dbfc59b24a8c71484bd}} 
+\index{ManagementSystem@{ManagementSystem}!avgPipeUsage@{avgPipeUsage}}
+\index{avgPipeUsage@{avgPipeUsage}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{avgPipeUsage()}{avgPipeUsage()}}
+{\footnotesize\ttfamily double Management\+System\+::avg\+Pipe\+Usage (\begin{DoxyParamCaption}\item[{double $\ast$}]{min,  }\item[{double $\ast$}]{max,  }\item[{bool}]{first }\end{DoxyParamCaption})}
+
+Função que calcula a média de percentagem de utilização dos pipes de uma network em questão. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$min} & um apontador para um valor minimo de percentagem de utilizacao. \\
+\hline
+{\em $\ast$max} & um apontador para um valor maximo de percentagem de utilizacao. \\
+\hline
+{\em first} & um boolean que passa o valor true se for a primeira vez que a funcao esta a ser executada no programa. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_ad7a763eee70871ce81aee7e08879cc72}\label{class_management_system_ad7a763eee70871ce81aee7e08879cc72}} 
+\index{ManagementSystem@{ManagementSystem}!cleanFilter@{cleanFilter}}
+\index{cleanFilter@{cleanFilter}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{cleanFilter()}{cleanFilter()}}
+{\footnotesize\ttfamily void Management\+System\+::clean\+Filter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função que limpa os vetores ignore\+Vertex e ignore\+Edge e coloca o atributo ignore desses vértices e edges a false. Complexidade temporal\+: O(V + E). \mbox{\Hypertarget{class_management_system_ac537c5f0bbc9a25abea9bb685c4586f9}\label{class_management_system_ac537c5f0bbc9a25abea9bb685c4586f9}} 
+\index{ManagementSystem@{ManagementSystem}!createSuperSink@{createSuperSink}}
+\index{createSuperSink@{createSuperSink}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{createSuperSink()}{createSuperSink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Management\+System\+::create\+Super\+Sink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função que cria um vértice conectado a todas as cidades. Cada edge tem como origem uma cidade e como destino o novo vértice. Cada edge que sai de uma cidade tem como capacidade o demand da cidade. Complexidade temporal\+: O(\+V). \mbox{\Hypertarget{class_management_system_aecd971f0e72c32ff3a99fcbbd0d833a5}\label{class_management_system_aecd971f0e72c32ff3a99fcbbd0d833a5}} 
+\index{ManagementSystem@{ManagementSystem}!createSuperSink@{createSuperSink}}
+\index{createSuperSink@{createSuperSink}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{createSuperSink()}{createSuperSink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Management\+System\+::create\+Super\+Sink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&}]{network }\end{DoxyParamCaption})}
+
+Função que cria um vértice conectado a todas as cidades de um grafo fornecido. Cada edge tem como origem uma cidade e como destino o novo vértice. Cada edge que sai de uma cidade tem como capacidade o demand da cidade. Complexidade temporal\+: O(\+V). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo ao qual vai ser adicionado o vértice. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a0fcfd5c2f1f6f1b58f688ea684300b00}\label{class_management_system_a0fcfd5c2f1f6f1b58f688ea684300b00}} 
+\index{ManagementSystem@{ManagementSystem}!createSuperSource@{createSuperSource}}
+\index{createSuperSource@{createSuperSource}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{createSuperSource()}{createSuperSource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Management\+System\+::create\+Super\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função que cria um vértice conectado a todos os resevatórios. Cada edge tem como origem o novo vértice e como destino um reservatório. Cada edge conectado a um reservatório tem como capacidade o max\+Delivery do reservatório. Complexidade temporal\+: O(\+V). \mbox{\Hypertarget{class_management_system_aadef5fd81d83600a3975f62d9c196705}\label{class_management_system_aadef5fd81d83600a3975f62d9c196705}} 
+\index{ManagementSystem@{ManagementSystem}!createSuperSource@{createSuperSource}}
+\index{createSuperSource@{createSuperSource}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{createSuperSource()}{createSuperSource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Management\+System\+::create\+Super\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&}]{network }\end{DoxyParamCaption})}
+
+Função que cria um vértice conectado a todos os resevatórios de um grafo fornecido. Cada edge tem como origem o novo vértice e como destino um reservatório. Cada edge conectado a um reservatório tem como capacidade o max\+Delivery do reservatório. Complexidade temporal\+: O(\+V). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo ao qual vai ser adicionado o vértice. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a54bece73987cfcd0e694eb0fde4472f8}\label{class_management_system_a54bece73987cfcd0e694eb0fde4472f8}} 
+\index{ManagementSystem@{ManagementSystem}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Management\+System\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&}]{network,  }\item[{string}]{src\+Code,  }\item[{string}]{dest\+Code }\end{DoxyParamCaption})}
+
+Função que corre o algoritmo edmonds\+Karp num grafo fornecido. Complexidade temoporal\+: O(V E²). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo em que vai ser utilizado o algoritmo. \\
+\hline
+{\em src\+Code} & código do vértice de origem. \\
+\hline
+{\em dest\+Code} & código do vértice de destino. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a0853a399e4f85956e8fb9b84509a8247}\label{class_management_system_a0853a399e4f85956e8fb9b84509a8247}} 
+\index{ManagementSystem@{ManagementSystem}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Management\+System\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{string}]{src\+Code,  }\item[{string}]{dest\+Code }\end{DoxyParamCaption})}
+
+Função que corre o algoritmo edmonds\+Karp na network. Complexidade temoporal\+: O(V E²). 
+\begin{DoxyParams}{Parameters}
+{\em src\+Code} & código do vértice de origem. \\
+\hline
+{\em dest\+Code} & código do vértice de destino. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a59094a0558b7341732a12ef670a65070}\label{class_management_system_a59094a0558b7341732a12ef670a65070}} 
+\index{ManagementSystem@{ManagementSystem}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Management\+System\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{string}]{src\+Code,  }\item[{string}]{dest\+Code,  }\item[{double}]{avg }\end{DoxyParamCaption})}
+
+Função que corre o algoritmo edmonds\+Karp num grafo fornecido com um valor extra para limitar a usage dos pipes Complexidade temoporal\+: O(V E²). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo em que vai ser utilizado o algoritmo. \\
+\hline
+{\em src\+Code} & código do vértice de origem. \\
+\hline
+{\em dest\+Code} & código do vértice de destino. \\
+\hline
+{\em avg} & media da percentagem de usage dos pipes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a5d23e9924fef41fbfe2ac63da0792652}\label{class_management_system_a5d23e9924fef41fbfe2ac63da0792652}} 
+\index{ManagementSystem@{ManagementSystem}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Management\+System\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&}]{network,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Função que procura um augmenting path num grafo fornecido usando BFS. Complexidade temporal\+: O(V + E). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo onde vai ser procurado o augmenting path. \\
+\hline
+{\em src} & vértice de origem. \\
+\hline
+{\em dest} & vértice de destino. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontar um caminho ou falso se não encontar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_a3e4ae561a4137066f749816d9452c7ca}\label{class_management_system_a3e4ae561a4137066f749816d9452c7ca}} 
+\index{ManagementSystem@{ManagementSystem}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Management\+System\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Função que procura um augmenting path em network usando BFS. Complexidade temporal\+: O(V + E). 
+\begin{DoxyParams}{Parameters}
+{\em src} & vértice de origem. \\
+\hline
+{\em dest} & vértice de destino. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a42b33cc2be545791656ec5479ff48b54}\label{class_management_system_a42b33cc2be545791656ec5479ff48b54}} 
+\index{ManagementSystem@{ManagementSystem}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Management\+System\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{dest,  }\item[{double}]{avg }\end{DoxyParamCaption})}
+
+Função que procura um augmenting path num grafo fornecido usando BFS. Complexidade temporal\+: O(V + E). 
+\begin{DoxyParams}{Parameters}
+{\em network} & grafo onde vai ser procurado o augmenting path. \\
+\hline
+{\em src} & vértice de origem. \\
+\hline
+{\em dest} & vértice de destino. \\
+\hline
+{\em avg} & media da percentagem de usage dos pipes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontar um caminho ou false se não encontar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_a76aba5fc7f1d748f6c4e4ce019037821}\label{class_management_system_a76aba5fc7f1d748f6c4e4ce019037821}} 
+\index{ManagementSystem@{ManagementSystem}!getCities@{getCities}}
+\index{getCities@{getCities}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getCities()}{getCities()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& Management\+System\+::get\+Cities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Função que retorna o vetor cities. \begin{DoxyReturn}{Returns}
+vetor cities. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_aa24c4e824050d0a9f0007414af502241}\label{class_management_system_aa24c4e824050d0a9f0007414af502241}} 
+\index{ManagementSystem@{ManagementSystem}!getIgnoreEdge@{getIgnoreEdge}}
+\index{getIgnoreEdge@{getIgnoreEdge}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getIgnoreEdge()}{getIgnoreEdge()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$ $>$ \& Management\+System\+::get\+Ignore\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Função que retorna o vetor ignore\+Edge. \begin{DoxyReturn}{Returns}
+vetor ignore\+Edge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_a62620cc17a2d405ab798de6628341be0}\label{class_management_system_a62620cc17a2d405ab798de6628341be0}} 
+\index{ManagementSystem@{ManagementSystem}!getIgnoreVertex@{getIgnoreVertex}}
+\index{getIgnoreVertex@{getIgnoreVertex}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getIgnoreVertex()}{getIgnoreVertex()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ std\+::string $>$ $\ast$ $>$ Management\+System\+::get\+Ignore\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Função que retorna o vetor ignore\+Vertex. \begin{DoxyReturn}{Returns}
+vetor ignore\+Vertex. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_a46f99efbdbabd0074e6a3e36e7b863ed}\label{class_management_system_a46f99efbdbabd0074e6a3e36e7b863ed}} 
+\index{ManagementSystem@{ManagementSystem}!getNetwork@{getNetwork}}
+\index{getNetwork@{getNetwork}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getNetwork()}{getNetwork()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \& Management\+System\+::get\+Network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Funçao que retorna o grafo network. \begin{DoxyReturn}{Returns}
+grafo network. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_aca62268cdf398a65cc86dbd2c623af20}\label{class_management_system_aca62268cdf398a65cc86dbd2c623af20}} 
+\index{ManagementSystem@{ManagementSystem}!getReservoirs@{getReservoirs}}
+\index{getReservoirs@{getReservoirs}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getReservoirs()}{getReservoirs()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& Management\+System\+::get\+Reservoirs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Função que retorna o vetor reservoirs. \begin{DoxyReturn}{Returns}
+vetor reservoirs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_a4e2fb19ce0fd242816d75611ec07bc33}\label{class_management_system_a4e2fb19ce0fd242816d75611ec07bc33}} 
+\index{ManagementSystem@{ManagementSystem}!getStations@{getStations}}
+\index{getStations@{getStations}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{getStations()}{getStations()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \& Management\+System\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Função que retorna o vetor stations. \begin{DoxyReturn}{Returns}
+vetor stations. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_af2c2f40e1274a2ef03bcf3f80bab92ec}\label{class_management_system_af2c2f40e1274a2ef03bcf3f80bab92ec}} 
+\index{ManagementSystem@{ManagementSystem}!minResidualPath@{minResidualPath}}
+\index{minResidualPath@{minResidualPath}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{minResidualPath()}{minResidualPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Management\+System\+::min\+Residual\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Função que procura a capacidade residual mínima ao longo do augmenting path. Complexidade temporal\+: O(\+V). 
+\begin{DoxyParams}{Parameters}
+{\em src} & vértice de origem. \\
+\hline
+{\em dest} & vértice de destino. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+capacidade residual mínima. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_aee997d2ade8302523bf376e123c4ab0a}\label{class_management_system_aee997d2ade8302523bf376e123c4ab0a}} 
+\index{ManagementSystem@{ManagementSystem}!minResidualPath@{minResidualPath}}
+\index{minResidualPath@{minResidualPath}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{minResidualPath()}{minResidualPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Management\+System\+::min\+Residual\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{src,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{dest,  }\item[{double}]{avg }\end{DoxyParamCaption})}
+
+Função que procura a capacidade residual mínima ao longo do augmenting path. Complexidade temporal\+: O(\+V). 
+\begin{DoxyParams}{Parameters}
+{\em src} & vértice de origem. \\
+\hline
+{\em dest} & vértice de destino. \\
+\hline
+{\em avg} & media da percentagem de usage dos pipes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+capacidade residual mínima. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_management_system_aa004378fd00ea13f69b07e9388e5c7b6}\label{class_management_system_aa004378fd00ea13f69b07e9388e5c7b6}} 
+\index{ManagementSystem@{ManagementSystem}!printFilter@{printFilter}}
+\index{printFilter@{printFilter}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{printFilter()}{printFilter()}}
+{\footnotesize\ttfamily void Management\+System\+::print\+Filter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função que imprime todos os reservatórios, estações e pipes ignorados. Complexidade temporal\+: O(V + E). \mbox{\Hypertarget{class_management_system_a3a5e74d30be98820512a606c1715071e}\label{class_management_system_a3a5e74d30be98820512a606c1715071e}} 
+\index{ManagementSystem@{ManagementSystem}!readCities@{readCities}}
+\index{readCities@{readCities}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{readCities()}{readCities()}}
+{\footnotesize\ttfamily void Management\+System\+::read\+Cities (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Função que lê o ficheiro com as informações das cidades e adiciona à network. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do ficheiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_addb5a2cc67f364d3fdbe82ffa1c0c329}\label{class_management_system_addb5a2cc67f364d3fdbe82ffa1c0c329}} 
+\index{ManagementSystem@{ManagementSystem}!readPipes@{readPipes}}
+\index{readPipes@{readPipes}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{readPipes()}{readPipes()}}
+{\footnotesize\ttfamily void Management\+System\+::read\+Pipes (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Função que lê o ficheiro com as informações dos pipes e adiciona à network. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do ficheiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a137183dabe15d7d97c922f072e42a3b0}\label{class_management_system_a137183dabe15d7d97c922f072e42a3b0}} 
+\index{ManagementSystem@{ManagementSystem}!readReservoirs@{readReservoirs}}
+\index{readReservoirs@{readReservoirs}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{readReservoirs()}{readReservoirs()}}
+{\footnotesize\ttfamily void Management\+System\+::read\+Reservoirs (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Função que lê o ficheiro com as informações dos reservatórios e adiciona à network. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do ficheiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_ae69e34e8a94c1366f7c7684e3493cfb7}\label{class_management_system_ae69e34e8a94c1366f7c7684e3493cfb7}} 
+\index{ManagementSystem@{ManagementSystem}!readStations@{readStations}}
+\index{readStations@{readStations}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{readStations()}{readStations()}}
+{\footnotesize\ttfamily void Management\+System\+::read\+Stations (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Função que lê o ficheiro com as informações das estações e adiciona à network. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & nome do ficheiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a8ca1098feceaf8f25d9f75829ae07a56}\label{class_management_system_a8ca1098feceaf8f25d9f75829ae07a56}} 
+\index{ManagementSystem@{ManagementSystem}!removeIgnoreEdge@{removeIgnoreEdge}}
+\index{removeIgnoreEdge@{removeIgnoreEdge}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{removeIgnoreEdge()}{removeIgnoreEdge()}}
+{\footnotesize\ttfamily void Management\+System\+::remove\+Ignore\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$}]{edge }\end{DoxyParamCaption})}
+
+Função que remove um edge do vetor ignore\+Edge e coloca o seu atributo ignore a false. 
+\begin{DoxyParams}{Parameters}
+{\em edge} & edge a ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_ae42d18730ed01fdee9b1690b1b66c077}\label{class_management_system_ae42d18730ed01fdee9b1690b1b66c077}} 
+\index{ManagementSystem@{ManagementSystem}!removeIgnoreVertex@{removeIgnoreVertex}}
+\index{removeIgnoreVertex@{removeIgnoreVertex}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{removeIgnoreVertex()}{removeIgnoreVertex()}}
+{\footnotesize\ttfamily void Management\+System\+::remove\+Ignore\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$}]{vertex }\end{DoxyParamCaption})}
+
+Função que remove um vértice do vetor ignore\+Vertex e coloca o seu atributo ignore a false. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & vértice a ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_ad0fc5560074dd95043014405a38d6e2e}\label{class_management_system_ad0fc5560074dd95043014405a38d6e2e}} 
+\index{ManagementSystem@{ManagementSystem}!removeReservoir@{removeReservoir}}
+\index{removeReservoir@{removeReservoir}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{removeReservoir()}{removeReservoir()}}
+{\footnotesize\ttfamily void Management\+System\+::remove\+Reservoir (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})}
+
+Função que imprime que cidades são afetadas se for removido um reservatório e a quantidade de água que chega com e sem o reservatório. Esta função analisa que cidades e reservatórios são afetados pela remoção do reservatório e corre o algoritmo edmonds\+Karp apenas por essas cidades e reservatórios. Complexidade temporal\+: O(V E²) 
+\begin{DoxyParams}{Parameters}
+{\em code} & código do reservatório para ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a6048a639f03445545a4001338c46331e}\label{class_management_system_a6048a639f03445545a4001338c46331e}} 
+\index{ManagementSystem@{ManagementSystem}!resetIgnore@{resetIgnore}}
+\index{resetIgnore@{resetIgnore}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{resetIgnore()}{resetIgnore()}}
+{\footnotesize\ttfamily void Management\+System\+::reset\+Ignore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_management_system_a282c91d8a892482d2124e19f7e8425ed}\label{class_management_system_a282c91d8a892482d2124e19f7e8425ed}} 
+\index{ManagementSystem@{ManagementSystem}!saveVals@{saveVals}}
+\index{saveVals@{saveVals}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{saveVals()}{saveVals()}}
+{\footnotesize\ttfamily void Management\+System\+::save\+Vals (\begin{DoxyParamCaption}\item[{double}]{avg,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+Função que guarda alguns atributos diretamente na network em questão. 
+\begin{DoxyParams}{Parameters}
+{\em avg} & media pipe \% de utilizacao \\
+\hline
+{\em min} & minimo pipe \% de utilizacao \\
+\hline
+{\em max} & maximo pipe \% de utilizacao \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a9418124b429c44b8f61526cbadff93f0}\label{class_management_system_a9418124b429c44b8f61526cbadff93f0}} 
+\index{ManagementSystem@{ManagementSystem}!setCities@{setCities}}
+\index{setCities@{setCities}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setCities()}{setCities()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Cities (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&}]{cities }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o vetor cities. 
+\begin{DoxyParams}{Parameters}
+{\em cities} & novo vetor cities. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a23da77d35e54cd77c32ad19f6757f522}\label{class_management_system_a23da77d35e54cd77c32ad19f6757f522}} 
+\index{ManagementSystem@{ManagementSystem}!setIgnore@{setIgnore}}
+\index{setIgnore@{setIgnore}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setIgnore()}{setIgnore()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Ignore (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$}]{vertexes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_management_system_aaaeabc4d55c6a5383c0ebb55eb1a5b4a}\label{class_management_system_aaaeabc4d55c6a5383c0ebb55eb1a5b4a}} 
+\index{ManagementSystem@{ManagementSystem}!setIgnoreEdge@{setIgnoreEdge}}
+\index{setIgnoreEdge@{setIgnoreEdge}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setIgnoreEdge()}{setIgnoreEdge()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Ignore\+Edge (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ string $>$ $\ast$ $>$ \&}]{ignore\+Edge }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o vetor ignore\+Edge. 
+\begin{DoxyParams}{Parameters}
+{\em ignore\+Edge} & novo vetor ignore\+Edge. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_acb7a26a215bdd6cd9b4349a9fc2c3b7f}\label{class_management_system_acb7a26a215bdd6cd9b4349a9fc2c3b7f}} 
+\index{ManagementSystem@{ManagementSystem}!setIgnoreVertex@{setIgnoreVertex}}
+\index{setIgnoreVertex@{setIgnoreVertex}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setIgnoreVertex()}{setIgnoreVertex()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Ignore\+Vertex (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&}]{ignore\+Vertex }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o vetor ignore\+Vertex. 
+\begin{DoxyParams}{Parameters}
+{\em ignore\+Vertex} & novo vetor ignore\+Vertex. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a6577f9faa445def2709efce7881f07cd}\label{class_management_system_a6577f9faa445def2709efce7881f07cd}} 
+\index{ManagementSystem@{ManagementSystem}!setNetwork@{setNetwork}}
+\index{setNetwork@{setNetwork}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setNetwork()}{setNetwork()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Network (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_graph}{Graph}}$<$ string $>$ \&}]{network }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o grafo network. 
+\begin{DoxyParams}{Parameters}
+{\em network} & novo grafo network. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_a53429efc9e878c721b7c4ccc7287c511}\label{class_management_system_a53429efc9e878c721b7c4ccc7287c511}} 
+\index{ManagementSystem@{ManagementSystem}!setReservoirs@{setReservoirs}}
+\index{setReservoirs@{setReservoirs}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setReservoirs()}{setReservoirs()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Reservoirs (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&}]{reservoirs }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o vetor ignore\+Vertex. 
+\begin{DoxyParams}{Parameters}
+{\em reservoirs} & novo vetor ignore\+Vertex. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_management_system_acf9cd6c181248f3f01d5c1748299a8e8}\label{class_management_system_acf9cd6c181248f3f01d5c1748299a8e8}} 
+\index{ManagementSystem@{ManagementSystem}!setStations@{setStations}}
+\index{setStations@{setStations}!ManagementSystem@{ManagementSystem}}
+\doxysubsubsection{\texorpdfstring{setStations()}{setStations()}}
+{\footnotesize\ttfamily void Management\+System\+::set\+Stations (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ string $>$ $\ast$ $>$ \&}]{stations }\end{DoxyParamCaption})}
+
+Funçao que permite alterar o vetor stations. 
+\begin{DoxyParams}{Parameters}
+{\em stations} & novo vetor stations. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/filipegaio/\+Desktop/\+FEUP/\+DA/\+PROJ/\+Water\+Management\+DA/src/\mbox{\hyperlink{_management_system_8h}{Management\+System.\+h}}\item 
+/home/filipegaio/\+Desktop/\+FEUP/\+DA/\+PROJ/\+Water\+Management\+DA/src/\mbox{\hyperlink{_management_system_8cpp}{Management\+System.\+cpp}}\end{DoxyCompactItemize}

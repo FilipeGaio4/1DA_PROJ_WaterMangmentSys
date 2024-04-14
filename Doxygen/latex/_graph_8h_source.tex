@@ -1,0 +1,868 @@
+\hypertarget{_graph_8h_source}{}\doxysection{Graph.\+h}
+\label{_graph_8h_source}\index{/home/filipegaio/Desktop/FEUP/DA/PROJ/WaterManagementDA/src/data\_structures/Graph.h@{/home/filipegaio/Desktop/FEUP/DA/PROJ/WaterManagementDA/src/data\_structures/Graph.h}}
+\mbox{\hyperlink{_graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef DA\_TP\_CLASSES\_GRAPH}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define DA\_TP\_CLASSES\_GRAPH}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../data\_structures/MutablePriorityQueue.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define INF std::numeric\_limits<double>::max()}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{/************************* Vertex  **************************/}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_vertex}{Vertex}} \{}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_vertex_afcbdd4d4198b672356559cb8fa088408}{Vertex}}(T in);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_a5a6670b842354232bac4dad2f551d66e}{operator<}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} \&vertex) \textcolor{keyword}{const}; \textcolor{comment}{// // required by MutablePriorityQueue}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     T \mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aa2bb17f6ebd98a67f8da1f689b22fadc}{isVisited}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aaa41dfa4ce1a19b4e529cc6cdc23b764}{isProcessing}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a25642875df28caa2195bad5a9ae44683}{getIndegree}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a01e90e3cdb2ee11dd3b1d593c8207382}{getDist}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_a15e4ff95fba2bb5970a6551137ceb950}{getPath}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_a361d7d0459d37aead6401d6af9f81f0a}{getIncoming}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a31cd60c26640f8072a928ba70eb2f95e}{setInfo}}(T \mbox{\hyperlink{class_vertex_a415d7811eef6cdd992f0dca1f35a49cd}{info}});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a95a3f3c55f2ba371fae51d3fe0e76c23}{setVisited}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_a187a2fe4ff50261cf3c15b8cda7dfc56}{visited}});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_aac570fc2a4d252082bef2f18365bf9f2}{setProcesssing}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_ae575d4b9a6b1ada3f9626c458c060f54}{processing}});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_af9c4caaac19bdaae5a88a7a671639b59}{setIndegree}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_af5db7e2f035a38dcc7c6e1b03117b06a}{indegree}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a060fbea0c3738cc3e09d84ad8c431b34}{setDist}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a08a2b813e77f97aa8b6c1d252e5417f7}{dist}});}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a5ebf4b550ec94b89a8f80df1a53cc97d}{setPath}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_abfc6d8f64308c47901c72d5ebceda80e}{path}});}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_a36a616b80daad6e2a8c6d2fa78a1eb34}{addEdge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *dest, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_ac1f1dd0a8e1019a242f1120d6559c754}{removeEdge}}(T in);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a414ce58fdf35ee5200a82912f3865506}{removeOutgoingEdges}}();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_mutable_priority_queue}{MutablePriorityQueue}}<\mbox{\hyperlink{class_vertex}{Vertex}}>;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{65     T \mbox{\hyperlink{class_vertex_a415d7811eef6cdd992f0dca1f35a49cd}{info}};                \textcolor{comment}{// info node}}
+\DoxyCodeLine{66     std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_adb48310bebc687c86e90d2a20215642f}{adj}};  \textcolor{comment}{// outgoing edges}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{comment}{// auxiliary fields}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_a187a2fe4ff50261cf3c15b8cda7dfc56}{visited}} = \textcolor{keyword}{false}; \textcolor{comment}{// used by DFS, BFS, Prim ...}}
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_ae575d4b9a6b1ada3f9626c458c060f54}{processing}} = \textcolor{keyword}{false}; \textcolor{comment}{// used by isDAG (in addition to the visited attribute)}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_af5db7e2f035a38dcc7c6e1b03117b06a}{indegree}}; \textcolor{comment}{// used by topsort}}
+\DoxyCodeLine{72     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a08a2b813e77f97aa8b6c1d252e5417f7}{dist}} = 0;}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_abfc6d8f64308c47901c72d5ebceda80e}{path}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_a004d1b624d1cd1a7afe49295682e2899}{incoming}}; \textcolor{comment}{// incoming edges}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a721ab622207a73c5fae7b9abad6c07cc}{queueIndex}} = 0;        \textcolor{comment}{// required by MutablePriorityQueue and UFDS}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_vertex_a92b7d377898483bca33c85dbb8c53c03}{reservoir}};}
+\DoxyCodeLine{80 \textcolor{keyword}{public}:}
+\DoxyCodeLine{81     \textcolor{keyword}{const} \textcolor{keywordtype}{string} \&\mbox{\hyperlink{class_vertex_acbdd1e5accda7633e2d1bddb0c817993}{getReservoir}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_a92b7d377898483bca33c85dbb8c53c03}{reservoir}};}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_acec19179c994b470738f060ab953714e}{setReservoir}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&\mbox{\hyperlink{class_vertex_a92b7d377898483bca33c85dbb8c53c03}{reservoir}}) \{}
+\DoxyCodeLine{86         \mbox{\hyperlink{class_vertex_a92b7d377898483bca33c85dbb8c53c03}{Vertex::reservoir}} = \mbox{\hyperlink{class_vertex_a92b7d377898483bca33c85dbb8c53c03}{reservoir}};}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a57f6b5705f2faafc90184254213bbff1}{getId}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_aee0ae544b6124250fd4e758e181c3b90}{id}};}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_adae32396a134915b03e0a785d81b9b0f}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}) \{}
+\DoxyCodeLine{94         \mbox{\hyperlink{class_vertex_aee0ae544b6124250fd4e758e181c3b90}{Vertex::id}} = \mbox{\hyperlink{class_vertex_aee0ae544b6124250fd4e758e181c3b90}{id}};}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a2ef5075b8e0cfc7557e5dd8af5961efa}{getMaxDelivery}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_a097e0206061f2b6a7b434fee9a56c4bc}{maxDelivery}};}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_ab017fa50fdb7a85d452bde25b1d71482}{setMaxDelivery}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a097e0206061f2b6a7b434fee9a56c4bc}{maxDelivery}}) \{}
+\DoxyCodeLine{102         \mbox{\hyperlink{class_vertex_a097e0206061f2b6a7b434fee9a56c4bc}{Vertex::maxDelivery}} = \mbox{\hyperlink{class_vertex_a097e0206061f2b6a7b434fee9a56c4bc}{maxDelivery}};}
+\DoxyCodeLine{103     \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keyword}{const} \textcolor{keywordtype}{string} \&\mbox{\hyperlink{class_vertex_ab6f53d7d4916a7776fcee235e29b4607}{getCity}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_aa2b403ccddc3d4723cd195a17f8981c7}{city}};}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a13309abf1fecc91c1d0257b0ea967594}{setCity}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&\mbox{\hyperlink{class_vertex_aa2b403ccddc3d4723cd195a17f8981c7}{city}}) \{}
+\DoxyCodeLine{110         \mbox{\hyperlink{class_vertex_aa2b403ccddc3d4723cd195a17f8981c7}{Vertex::city}} = \mbox{\hyperlink{class_vertex_aa2b403ccddc3d4723cd195a17f8981c7}{city}};}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a4b15a39fb56c806199178e9ed5b4dea6}{getDemand}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_a113e761d3cc96fbffefd50e1247d276d}{demand}};}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_af64eda31df390476e365fd7f41f0a533}{setDemand}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a113e761d3cc96fbffefd50e1247d276d}{demand}}) \{}
+\DoxyCodeLine{118         \mbox{\hyperlink{class_vertex_a113e761d3cc96fbffefd50e1247d276d}{Vertex::demand}} = \mbox{\hyperlink{class_vertex_a113e761d3cc96fbffefd50e1247d276d}{demand}};}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a361e3de2759f1bef8c1d770fbefe2fb8}{getPopulation}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{122         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_aae24652d9b68933eb73c2457c01e40a0}{population}};}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a8b0c3f6350d1fe1c871a89e2aae0d3a7}{setPopulation}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_aae24652d9b68933eb73c2457c01e40a0}{population}}) \{}
+\DoxyCodeLine{126         \mbox{\hyperlink{class_vertex_aae24652d9b68933eb73c2457c01e40a0}{Vertex::population}} = \mbox{\hyperlink{class_vertex_aae24652d9b68933eb73c2457c01e40a0}{population}};}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a69a38349bbe7a1a17850d0913c240765}{getType}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_acee966ca37736ee02a1159fabbf23bc0}{type}};}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_ae96ac225e48802d2167886c567b1de90}{setType}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_acee966ca37736ee02a1159fabbf23bc0}{type}}) \{}
+\DoxyCodeLine{134         \mbox{\hyperlink{class_vertex_acee966ca37736ee02a1159fabbf23bc0}{Vertex::type}} = \mbox{\hyperlink{class_vertex_acee966ca37736ee02a1159fabbf23bc0}{type}};}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_a9bda68c9699f60a660a20f11d04a6c54}{isIgnore}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{ignore}};}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a9c816b950961700ee0edc936f5a78ae2}{setIgnore}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{ignore}}) \{}
+\DoxyCodeLine{142         \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{Vertex::ignore}} = \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{ignore}};}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{146     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{ignore}};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_aee0ae544b6124250fd4e758e181c3b90}{id}};}
+\DoxyCodeLine{149     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a097e0206061f2b6a7b434fee9a56c4bc}{maxDelivery}}; }
+\DoxyCodeLine{150     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_vertex_aa2b403ccddc3d4723cd195a17f8981c7}{city}};}
+\DoxyCodeLine{151     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a113e761d3cc96fbffefd50e1247d276d}{demand}}; }
+\DoxyCodeLine{152     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_aae24652d9b68933eb73c2457c01e40a0}{population}}; }
+\DoxyCodeLine{153     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_vertex_a41e5ce95358bee1bc0bbe3db5261be79}{municipality}};}
+\DoxyCodeLine{154     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_acee966ca37736ee02a1159fabbf23bc0}{type}}; }
+\DoxyCodeLine{155     \textcolor{comment}{//0 means Reservoir}}
+\DoxyCodeLine{156     \textcolor{comment}{//1 means City}}
+\DoxyCodeLine{157     \textcolor{comment}{//2 means Station}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_af36b4e18f5bbf3dd9a5c9abcb6665ffd}{recievedFlow}}; }
+\DoxyCodeLine{162 \textcolor{keyword}{public}:}
+\DoxyCodeLine{163     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a7e74e38683f9f704964ddaeb1ddc2002}{getRecievedFlow}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vertex_af36b4e18f5bbf3dd9a5c9abcb6665ffd}{recievedFlow}};}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a9873458a90549fa1aff511f019a0fdd4}{setRecievedFlow}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_af36b4e18f5bbf3dd9a5c9abcb6665ffd}{recievedFlow}}) \{}
+\DoxyCodeLine{168         \mbox{\hyperlink{class_vertex_af36b4e18f5bbf3dd9a5c9abcb6665ffd}{Vertex::recievedFlow}} = \mbox{\hyperlink{class_vertex_af36b4e18f5bbf3dd9a5c9abcb6665ffd}{recievedFlow}};}
+\DoxyCodeLine{169     \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a622503fe44ef12d5c39bd1043d47865c}{deleteEdge}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *edge);}
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{comment}{/********************** Edge  ****************************/}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{180 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}} \{}
+\DoxyCodeLine{181 \textcolor{keyword}{public}:}
+\DoxyCodeLine{182     \mbox{\hyperlink{class_edge_ab976213419283ed754f42f57b195a288}{Edge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a4510c31e0479f9d25f6e35d086887192}{orig}}, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_ae4d65678b91bd9d814af4720ad87cd0c}{dest}}, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a3df378e283d6c8be5be4170ac8d7f4e8}{getWeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a2d36af60fa3dea16824bec12e5f68c58}{isSelected}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a40fc1470c5339203defca19b67c2535b}{getOrig}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192     \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_edge_af0a900f3006e47b9f363df7429298eeb}{getReverse}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a75458cfc838ca5aee5c34cb9f03b5647}{getFlow}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a87c8402c5edd6729a2c934e2a0cce6fe}{setSelected}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a5242549271b59544ad1189fb532b5bbe}{selected}});}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_afe8f8429025756c63f38e8c6fde7382c}{setReverse}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_edge_a6c1e5191f85afbd20cf6198815c9b079}{reverse}});}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a1819116e2c156733a14bbd94cc27908e}{setFlow}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a30808601fa37f509147eabf9cc5f9ed6}{flow}});}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_ac56e0ebbe5a6e4c0a15b5bfc85d1e96b}{isIgnore}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a848a17a41f3facd9bc5de1abfb3bfce0}{setIgnore}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a6d6dbcb3c489af79523be47c2c024b73}{ignore}});}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{207     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_ae4d65678b91bd9d814af4720ad87cd0c}{dest}}; \textcolor{comment}{// destination vertex}}
+\DoxyCodeLine{208     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_af188b57b604f0d65e2da48733bd76426}{weight}}; \textcolor{comment}{// edge weight, can also be used for capacity}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{comment}{// auxiliary fields}}
+\DoxyCodeLine{211     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a5242549271b59544ad1189fb532b5bbe}{selected}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{comment}{// used for bidirectional edges}}
+\DoxyCodeLine{214     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a4510c31e0479f9d25f6e35d086887192}{orig}};}
+\DoxyCodeLine{215     \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_edge_a6c1e5191f85afbd20cf6198815c9b079}{reverse}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a30808601fa37f509147eabf9cc5f9ed6}{flow}}; \textcolor{comment}{// for flow-\/related problems}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a6d6dbcb3c489af79523be47c2c024b73}{ignore}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_ad9a35e4ebaa0eca8485070cd12b99749}{flowUsage}}; }
+\DoxyCodeLine{224 \textcolor{keyword}{public}:}
+\DoxyCodeLine{225     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a47953b9fbaed06c466e5ae681ac4809b}{getFlowUsage}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{226         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_edge_ad9a35e4ebaa0eca8485070cd12b99749}{flowUsage}};}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_ad3ce76acb78bd525d104f7059cb1a884}{setFlowUsage}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_ad9a35e4ebaa0eca8485070cd12b99749}{flowUsage}}) \{}
+\DoxyCodeLine{230         \mbox{\hyperlink{class_edge_ad9a35e4ebaa0eca8485070cd12b99749}{Edge::flowUsage}} = \mbox{\hyperlink{class_edge_ad9a35e4ebaa0eca8485070cd12b99749}{flowUsage}};}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 \};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{comment}{/********************** Graph  ****************************/}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{238 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
+\DoxyCodeLine{239 \textcolor{keyword}{public}:}
+\DoxyCodeLine{240     \mbox{\hyperlink{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}{\string~Graph}}();}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242     \textcolor{comment}{/*}}
+\DoxyCodeLine{243 \textcolor{comment}{    * Auxiliary function to find a vertex with a given the content.}}
+\DoxyCodeLine{244 \textcolor{comment}{    */}}
+\DoxyCodeLine{245     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{findVertex}}(\textcolor{keyword}{const} T \&in) \textcolor{keyword}{const};}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247     \textcolor{comment}{/*}}
+\DoxyCodeLine{248 \textcolor{comment}{     *  Adds a vertex with a given content or info (in) to a graph (this).}}
+\DoxyCodeLine{249 \textcolor{comment}{     *  Returns true if successful, and false if a vertex with that content already exists.}}
+\DoxyCodeLine{250 \textcolor{comment}{     */}}
+\DoxyCodeLine{251     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}{addVertex}}(\textcolor{keyword}{const} T \&in);}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_af9c903104ad69a7782979fa9caedf163}{removeVertex}}(\textcolor{keyword}{const} T \&in);}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a403d25d50184c52280acef246c1b202e}{addVertex}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v) \{}
+\DoxyCodeLine{256         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{findVertex}}(v-\/>\mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}()) != \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{257         \mbox{\hyperlink{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}{vertexSet}}.push\_back(v);}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{259     \}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avgPipeUsg}}; }
+\DoxyCodeLine{262     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{minPipeUsg}}; }
+\DoxyCodeLine{263     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{maxPipeUsg}}; }
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a956de901950f99eee85d6d18b9758107}{getMinPipeUsg}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{minPipeUsg}};}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a20162822ae08c49d4b0620a7d4131c16}{setMinPipeUsg}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{minPipeUsg}}) \{}
+\DoxyCodeLine{270         \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{Graph::minPipeUsg}} = \mbox{\hyperlink{class_graph_aa229c9e9121526eb3e481c16cc528b5d}{minPipeUsg}};}
+\DoxyCodeLine{271     \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a557b38eb7c55cd2f7f31c2526b07f3e2}{getMaxPipeUsg}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{274         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{maxPipeUsg}};}
+\DoxyCodeLine{275     \}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a1868f80113fe9259c7ed126bdd59fd1a}{setMaxPipeUsg}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{maxPipeUsg}}) \{}
+\DoxyCodeLine{278         \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{Graph::maxPipeUsg}} = \mbox{\hyperlink{class_graph_adc636ab70032ce2bfc94d8f1221038e9}{maxPipeUsg}};}
+\DoxyCodeLine{279     \}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a663ffd56bc4c179851d5adfde7d26a30}{getAvgPipeUsg}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{283         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avgPipeUsg}};}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ac3ec35e54d01a125d21fbdd8c0931ccb}{setAvgPipeUsg}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avgPipeUsg}}) \{}
+\DoxyCodeLine{287         \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{Graph::avgPipeUsg}} = \mbox{\hyperlink{class_graph_a7d248516493034642f7a7c660fc093c0}{avgPipeUsg}};}
+\DoxyCodeLine{288     \}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290     \textcolor{comment}{/*}}
+\DoxyCodeLine{291 \textcolor{comment}{     * Adds an edge to a graph (this), given the contents of the source and}}
+\DoxyCodeLine{292 \textcolor{comment}{     * destination vertices and the edge weight (w).}}
+\DoxyCodeLine{293 \textcolor{comment}{     * Returns true if successful, and false if the source or destination vertex does not exist.}}
+\DoxyCodeLine{294 \textcolor{comment}{     */}}
+\DoxyCodeLine{295     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}{addEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a8949d071d45bf93e171e275462e1007a}{removeEdge}}(\textcolor{keyword}{const} T \&source, \textcolor{keyword}{const} T \&dest);}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}{addBidirectionalEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}{getNumVertex}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303     std::vector<Vertex<T> *> \mbox{\hyperlink{class_graph_a41624b03fcb6bd29e4df574a1ec58541}{getVertexSet}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     std::vector<T> \mbox{\hyperlink{class_graph_a1243f481d9929b890dbafe18cc3d8259}{dfs}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307     std::vector<T> \mbox{\hyperlink{class_graph_a4e6e8c33823d6d45d2ab201d64b39483}{dfs}}(\textcolor{keyword}{const} T \&source) \textcolor{keyword}{const};}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a468b6d9b6b1899d4c885324ed14e4f8a}{dfsVisit}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v, std::vector<T> \&res) \textcolor{keyword}{const};}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311     std::vector<T> \mbox{\hyperlink{class_graph_a4b211a9a1e49216603e6a676df8138ec}{bfs}}(\textcolor{keyword}{const} T \&source) \textcolor{keyword}{const};}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}{isDAG}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a06743c0b3e219cfeefa5aade38556cb7}{dfsIsDAG}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v) \textcolor{keyword}{const};}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317     std::vector<T> \mbox{\hyperlink{class_graph_ab8c7720cd8fcba892d4550494e91b8d4}{topsort}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{320     std::vector<Vertex<T> *> \mbox{\hyperlink{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}{vertexSet}};    \textcolor{comment}{// vertex set}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \textcolor{keywordtype}{double} **\mbox{\hyperlink{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}{distMatrix}} = \textcolor{keyword}{nullptr};   \textcolor{comment}{// dist matrix for Floyd-\/Warshall}}
+\DoxyCodeLine{323     \textcolor{keywordtype}{int} **\mbox{\hyperlink{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}{pathMatrix}} = \textcolor{keyword}{nullptr};   \textcolor{comment}{// path matrix for Floyd-\/Warshall}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{comment}{/*}}
+\DoxyCodeLine{326 \textcolor{comment}{     * Finds the index of the vertex with a given content.}}
+\DoxyCodeLine{327 \textcolor{comment}{     */}}
+\DoxyCodeLine{328     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a676cdfb976eccfa82b631d2094c1cdac}{findVertexIdx}}(\textcolor{keyword}{const} T \&in) \textcolor{keyword}{const};}
+\DoxyCodeLine{329 \};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331 \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{int} **m, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{double} **m, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336 \textcolor{comment}{/************************* Vertex  **************************/}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{339 \mbox{\hyperlink{class_vertex_afcbdd4d4198b672356559cb8fa088408}{Vertex<T>::Vertex}}(T in): info(in) \{}
+\DoxyCodeLine{340     \mbox{\hyperlink{class_vertex_aad39e00c90ccf909e196652dfc21a4ca}{ignore}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{341 \}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343 \textcolor{comment}{/*}}
+\DoxyCodeLine{344 \textcolor{comment}{ * Auxiliary function to add an outgoing edge to a vertex (this),}}
+\DoxyCodeLine{345 \textcolor{comment}{ * with a given destination vertex (d) and edge weight (w).}}
+\DoxyCodeLine{346 \textcolor{comment}{ */}}
+\DoxyCodeLine{347 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{348 \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_a36a616b80daad6e2a8c6d2fa78a1eb34}{Vertex<T>::addEdge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *d, \textcolor{keywordtype}{double} w) \{}
+\DoxyCodeLine{349     \textcolor{keyword}{auto} newEdge = \textcolor{keyword}{new} \mbox{\hyperlink{class_edge}{Edge<T>}}(\textcolor{keyword}{this}, d, w);}
+\DoxyCodeLine{350     adj.push\_back(newEdge);}
+\DoxyCodeLine{351     d-\/>\mbox{\hyperlink{class_vertex_a004d1b624d1cd1a7afe49295682e2899}{incoming}}.push\_back(newEdge);}
+\DoxyCodeLine{352     \textcolor{keywordflow}{return} newEdge;}
+\DoxyCodeLine{353 \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 \textcolor{comment}{/*}}
+\DoxyCodeLine{356 \textcolor{comment}{ * Auxiliary function to remove an outgoing edge (with a given destination (d))}}
+\DoxyCodeLine{357 \textcolor{comment}{ * from a vertex (this).}}
+\DoxyCodeLine{358 \textcolor{comment}{ * Returns true if successful, and false if such edge does not exist.}}
+\DoxyCodeLine{359 \textcolor{comment}{ */}}
+\DoxyCodeLine{360 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{361 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_ac1f1dd0a8e1019a242f1120d6559c754}{Vertex<T>::removeEdge}}(T in) \{}
+\DoxyCodeLine{362     \textcolor{keywordtype}{bool} removedEdge = \textcolor{keyword}{false};}
+\DoxyCodeLine{363     \textcolor{keyword}{auto} it = adj.begin();}
+\DoxyCodeLine{364     \textcolor{keywordflow}{while} (it != adj.end()) \{}
+\DoxyCodeLine{365         \mbox{\hyperlink{class_edge}{Edge<T>}} *edge = *it;}
+\DoxyCodeLine{366         \mbox{\hyperlink{class_vertex}{Vertex<T>}} *dest = edge-\/>\mbox{\hyperlink{class_edge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}();}
+\DoxyCodeLine{367         \textcolor{keywordflow}{if} (dest-\/>\mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}() == in) \{}
+\DoxyCodeLine{368             it = adj.erase(it);}
+\DoxyCodeLine{369             deleteEdge(edge);}
+\DoxyCodeLine{370             removedEdge = \textcolor{keyword}{true}; \textcolor{comment}{// allows for multiple edges to connect the same pair of vertices (multigraph)}}
+\DoxyCodeLine{371         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{372             it++;}
+\DoxyCodeLine{373         \}}
+\DoxyCodeLine{374     \}}
+\DoxyCodeLine{375     \textcolor{keywordflow}{return} removedEdge;}
+\DoxyCodeLine{376 \}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 \textcolor{comment}{/*}}
+\DoxyCodeLine{379 \textcolor{comment}{ * Auxiliary function to remove an outgoing edge of a vertex.}}
+\DoxyCodeLine{380 \textcolor{comment}{ */}}
+\DoxyCodeLine{381 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{382 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a414ce58fdf35ee5200a82912f3865506}{Vertex<T>::removeOutgoingEdges}}() \{}
+\DoxyCodeLine{383     \textcolor{keyword}{auto} it = adj.begin();}
+\DoxyCodeLine{384     \textcolor{keywordflow}{while} (it != adj.end()) \{}
+\DoxyCodeLine{385         \mbox{\hyperlink{class_edge}{Edge<T>}} *edge = *it;}
+\DoxyCodeLine{386         it = adj.erase(it);}
+\DoxyCodeLine{387         deleteEdge(edge);}
+\DoxyCodeLine{388     \}}
+\DoxyCodeLine{389 \}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{392 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_a5a6670b842354232bac4dad2f551d66e}{Vertex<T>::operator<}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} \&vertex)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{393     \textcolor{keywordflow}{return} this-\/>dist < vertex.\mbox{\hyperlink{class_vertex_a08a2b813e77f97aa8b6c1d252e5417f7}{dist}};}
+\DoxyCodeLine{394 \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{397 T \mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{Vertex<T>::getInfo}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{398     \textcolor{keywordflow}{return} this-\/>info;}
+\DoxyCodeLine{399 \}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{402 std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{Vertex<T>::getAdj}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{403     \textcolor{keywordflow}{return} this-\/>adj;}
+\DoxyCodeLine{404 \}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{407 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aa2bb17f6ebd98a67f8da1f689b22fadc}{Vertex<T>::isVisited}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{408     \textcolor{keywordflow}{return} this-\/>visited;}
+\DoxyCodeLine{409 \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{412 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex_aaa41dfa4ce1a19b4e529cc6cdc23b764}{Vertex<T>::isProcessing}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{413     \textcolor{keywordflow}{return} this-\/>processing;}
+\DoxyCodeLine{414 \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{417 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex_a25642875df28caa2195bad5a9ae44683}{Vertex<T>::getIndegree}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{418     \textcolor{keywordflow}{return} this-\/>indegree;}
+\DoxyCodeLine{419 \}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{422 \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vertex_a01e90e3cdb2ee11dd3b1d593c8207382}{Vertex<T>::getDist}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{423     \textcolor{keywordflow}{return} this-\/>dist;}
+\DoxyCodeLine{424 \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{427 \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_vertex_a15e4ff95fba2bb5970a6551137ceb950}{Vertex<T>::getPath}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{428     \textcolor{keywordflow}{return} this-\/>path;}
+\DoxyCodeLine{429 \}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{432 std::vector<Edge<T> *> \mbox{\hyperlink{class_vertex_a361d7d0459d37aead6401d6af9f81f0a}{Vertex<T>::getIncoming}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{433     \textcolor{keywordflow}{return} this-\/>incoming;}
+\DoxyCodeLine{434 \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{437 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a31cd60c26640f8072a928ba70eb2f95e}{Vertex<T>::setInfo}}(T in) \{}
+\DoxyCodeLine{438     this-\/>info = in;}
+\DoxyCodeLine{439 \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{442 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a95a3f3c55f2ba371fae51d3fe0e76c23}{Vertex<T>::setVisited}}(\textcolor{keywordtype}{bool} visited) \{}
+\DoxyCodeLine{443     this-\/>visited = visited;}
+\DoxyCodeLine{444 \}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{447 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_aac570fc2a4d252082bef2f18365bf9f2}{Vertex<T>::setProcesssing}}(\textcolor{keywordtype}{bool} processing) \{}
+\DoxyCodeLine{448     this-\/>processing = processing;}
+\DoxyCodeLine{449 \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{452 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_af9c4caaac19bdaae5a88a7a671639b59}{Vertex<T>::setIndegree}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indegree) \{}
+\DoxyCodeLine{453     this-\/>indegree = indegree;}
+\DoxyCodeLine{454 \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{457 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a060fbea0c3738cc3e09d84ad8c431b34}{Vertex<T>::setDist}}(\textcolor{keywordtype}{double} dist) \{}
+\DoxyCodeLine{458     this-\/>dist = dist;}
+\DoxyCodeLine{459 \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{462 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a5ebf4b550ec94b89a8f80df1a53cc97d}{Vertex<T>::setPath}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *path) \{}
+\DoxyCodeLine{463     this-\/>path = path;}
+\DoxyCodeLine{464 \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{467 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_a622503fe44ef12d5c39bd1043d47865c}{Vertex<T>::deleteEdge}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *edge) \{}
+\DoxyCodeLine{468     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *dest = edge-\/>\mbox{\hyperlink{class_edge_a9a2de066dff8513dd788d553fc1d0c81}{getDest}}();}
+\DoxyCodeLine{469     \textcolor{comment}{// Remove the corresponding edge from the incoming list}}
+\DoxyCodeLine{470     \textcolor{keyword}{auto} it = dest-\/>\mbox{\hyperlink{class_vertex_a004d1b624d1cd1a7afe49295682e2899}{incoming}}.begin();}
+\DoxyCodeLine{471     \textcolor{keywordflow}{while} (it != dest-\/>\mbox{\hyperlink{class_vertex_a004d1b624d1cd1a7afe49295682e2899}{incoming}}.end()) \{}
+\DoxyCodeLine{472         \textcolor{keywordflow}{if} ((*it)-\/>getOrig()-\/>getInfo() == info) \{}
+\DoxyCodeLine{473             it = dest-\/>\mbox{\hyperlink{class_vertex_a004d1b624d1cd1a7afe49295682e2899}{incoming}}.erase(it);}
+\DoxyCodeLine{474         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{475             it++;}
+\DoxyCodeLine{476         \}}
+\DoxyCodeLine{477     \}}
+\DoxyCodeLine{478     \textcolor{keyword}{delete} edge;}
+\DoxyCodeLine{479 \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 \textcolor{comment}{/********************** Edge  ****************************/}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{484 \mbox{\hyperlink{class_edge_ab976213419283ed754f42f57b195a288}{Edge<T>::Edge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *orig, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *dest, \textcolor{keywordtype}{double} w): orig(orig), dest(dest), weight(w) \{\}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{487 \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a9a2de066dff8513dd788d553fc1d0c81}{Edge<T>::getDest}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{488     \textcolor{keywordflow}{return} this-\/>dest;}
+\DoxyCodeLine{489 \}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{492 \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a3df378e283d6c8be5be4170ac8d7f4e8}{Edge<T>::getWeight}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{493     \textcolor{keywordflow}{return} this-\/>weight;}
+\DoxyCodeLine{494 \}}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{496 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{497 \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_edge_a40fc1470c5339203defca19b67c2535b}{Edge<T>::getOrig}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{498     \textcolor{keywordflow}{return} this-\/>orig;}
+\DoxyCodeLine{499 \}}
+\DoxyCodeLine{500 }
+\DoxyCodeLine{501 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{502 \mbox{\hyperlink{class_edge}{Edge<T>}} *\mbox{\hyperlink{class_edge_af0a900f3006e47b9f363df7429298eeb}{Edge<T>::getReverse}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{503     \textcolor{keywordflow}{return} this-\/>reverse;}
+\DoxyCodeLine{504 \}}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{507 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_a2d36af60fa3dea16824bec12e5f68c58}{Edge<T>::isSelected}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{508     \textcolor{keywordflow}{return} this-\/>selected;}
+\DoxyCodeLine{509 \}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{512 \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a75458cfc838ca5aee5c34cb9f03b5647}{Edge<T>::getFlow}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{513     \textcolor{keywordflow}{return} flow;}
+\DoxyCodeLine{514 \}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{517 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a87c8402c5edd6729a2c934e2a0cce6fe}{Edge<T>::setSelected}}(\textcolor{keywordtype}{bool} selected) \{}
+\DoxyCodeLine{518     this-\/>selected = selected;}
+\DoxyCodeLine{519 \}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{521 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{522 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_afe8f8429025756c63f38e8c6fde7382c}{Edge<T>::setReverse}}(\mbox{\hyperlink{class_edge}{Edge<T>}} *reverse) \{}
+\DoxyCodeLine{523     this-\/>reverse = reverse;}
+\DoxyCodeLine{524 \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{527 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a1819116e2c156733a14bbd94cc27908e}{Edge<T>::setFlow}}(\textcolor{keywordtype}{double} flow) \{}
+\DoxyCodeLine{528     this-\/>flow = flow;}
+\DoxyCodeLine{529 \}}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{532 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_edge_ac56e0ebbe5a6e4c0a15b5bfc85d1e96b}{Edge<T>::isIgnore}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{533     \textcolor{keywordflow}{return} ignore;}
+\DoxyCodeLine{534 \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{536 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{537 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge_a848a17a41f3facd9bc5de1abfb3bfce0}{Edge<T>::setIgnore}}(\textcolor{keywordtype}{bool} ignore) \{}
+\DoxyCodeLine{538     \mbox{\hyperlink{class_edge_a6d6dbcb3c489af79523be47c2c024b73}{Edge::ignore}} = ignore;}
+\DoxyCodeLine{539 \}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{541 \textcolor{comment}{/********************** Graph  ****************************/}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{544 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}{Graph<T>::getNumVertex}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{545     \textcolor{keywordflow}{return} vertexSet.size();}
+\DoxyCodeLine{546 \}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{548 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{549 std::vector<Vertex<T> *> \mbox{\hyperlink{class_graph_a41624b03fcb6bd29e4df574a1ec58541}{Graph<T>::getVertexSet}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{550     \textcolor{keywordflow}{return} vertexSet;}
+\DoxyCodeLine{551 \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553 \textcolor{comment}{/*}}
+\DoxyCodeLine{554 \textcolor{comment}{ * Auxiliary function to find a vertex with a given content.}}
+\DoxyCodeLine{555 \textcolor{comment}{ */}}
+\DoxyCodeLine{556 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{557 \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{Graph<T>::findVertex}}(\textcolor{keyword}{const} T \&in)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{558     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet)}
+\DoxyCodeLine{559         \textcolor{keywordflow}{if} (v-\/>getInfo() == in)}
+\DoxyCodeLine{560             \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{561     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{562 \}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564 \textcolor{comment}{/*}}
+\DoxyCodeLine{565 \textcolor{comment}{ * Finds the index of the vertex with a given content.}}
+\DoxyCodeLine{566 \textcolor{comment}{ */}}
+\DoxyCodeLine{567 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{568 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a676cdfb976eccfa82b631d2094c1cdac}{Graph<T>::findVertexIdx}}(\textcolor{keyword}{const} T \&in)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{569     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < vertexSet.size(); i++)}
+\DoxyCodeLine{570         \textcolor{keywordflow}{if} (vertexSet[i]-\/>getInfo() == in)}
+\DoxyCodeLine{571             \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{572     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{573 \}}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575 \textcolor{comment}{/*}}
+\DoxyCodeLine{576 \textcolor{comment}{ *  Adds a vertex with a given content or info (in) to a graph (this).}}
+\DoxyCodeLine{577 \textcolor{comment}{ *  Returns true if successful, and false if a vertex with that content already exists.}}
+\DoxyCodeLine{578 \textcolor{comment}{ */}}
+\DoxyCodeLine{579 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{580 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}{Graph<T>::addVertex}}(\textcolor{keyword}{const} T \&in) \{}
+\DoxyCodeLine{581     \textcolor{keywordflow}{if} (findVertex(in) != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{582         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{583     vertexSet.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_vertex}{Vertex<T>}}(in));}
+\DoxyCodeLine{584     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{585 \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{587 \textcolor{comment}{/*}}
+\DoxyCodeLine{588 \textcolor{comment}{ *  Removes a vertex with a given content (in) from a graph (this), and}}
+\DoxyCodeLine{589 \textcolor{comment}{ *  all outgoing and incoming edges.}}
+\DoxyCodeLine{590 \textcolor{comment}{ *  Returns true if successful, and false if such vertex does not exist.}}
+\DoxyCodeLine{591 \textcolor{comment}{ */}}
+\DoxyCodeLine{592 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{593 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_af9c903104ad69a7782979fa9caedf163}{Graph<T>::removeVertex}}(\textcolor{keyword}{const} T \&in) \{}
+\DoxyCodeLine{594     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = vertexSet.begin(); it != vertexSet.end(); it++) \{}
+\DoxyCodeLine{595         \textcolor{keywordflow}{if} ((*it)-\/>getInfo() == in) \{}
+\DoxyCodeLine{596             \textcolor{keyword}{auto} v = *it;}
+\DoxyCodeLine{597             v-\/>removeOutgoingEdges();}
+\DoxyCodeLine{598             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} u: vertexSet) \{}
+\DoxyCodeLine{599                 u-\/>removeEdge(v-\/>getInfo());}
+\DoxyCodeLine{600             \}}
+\DoxyCodeLine{601             vertexSet.erase(it);}
+\DoxyCodeLine{602             \textcolor{keyword}{delete} v;}
+\DoxyCodeLine{603             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{604         \}}
+\DoxyCodeLine{605     \}}
+\DoxyCodeLine{606     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{607 \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609 \textcolor{comment}{/*}}
+\DoxyCodeLine{610 \textcolor{comment}{ * Adds an edge to a graph (this), given the contents of the source and}}
+\DoxyCodeLine{611 \textcolor{comment}{ * destination vertices and the edge weight (w).}}
+\DoxyCodeLine{612 \textcolor{comment}{ * Returns true if successful, and false if the source or destination vertex does not exist.}}
+\DoxyCodeLine{613 \textcolor{comment}{ */}}
+\DoxyCodeLine{614 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{615 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}{Graph<T>::addEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{double} w) \{}
+\DoxyCodeLine{616     \textcolor{keyword}{auto} v1 = findVertex(sourc);}
+\DoxyCodeLine{617     \textcolor{keyword}{auto} v2 = findVertex(dest);}
+\DoxyCodeLine{618     \textcolor{keywordflow}{if} (v1 == \textcolor{keyword}{nullptr} || v2 == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{619         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{620     v1-\/>addEdge(v2, w);}
+\DoxyCodeLine{621     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{622 \}}
+\DoxyCodeLine{623 }
+\DoxyCodeLine{624 \textcolor{comment}{/*}}
+\DoxyCodeLine{625 \textcolor{comment}{ * Removes an edge from a graph (this).}}
+\DoxyCodeLine{626 \textcolor{comment}{ * The edge is identified by the source (sourc) and destination (dest) contents.}}
+\DoxyCodeLine{627 \textcolor{comment}{ * Returns true if successful, and false if such edge does not exist.}}
+\DoxyCodeLine{628 \textcolor{comment}{ */}}
+\DoxyCodeLine{629 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{630 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a8949d071d45bf93e171e275462e1007a}{Graph<T>::removeEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest) \{}
+\DoxyCodeLine{631     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *srcVertex = findVertex(sourc);}
+\DoxyCodeLine{632     \textcolor{keywordflow}{if} (srcVertex == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{633         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{634     \}}
+\DoxyCodeLine{635     \textcolor{keywordflow}{return} srcVertex-\/>\mbox{\hyperlink{class_vertex_ac1f1dd0a8e1019a242f1120d6559c754}{removeEdge}}(dest);}
+\DoxyCodeLine{636 \}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{639 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}{Graph<T>::addBidirectionalEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{double} w) \{}
+\DoxyCodeLine{640     \textcolor{keyword}{auto} v1 = findVertex(sourc);}
+\DoxyCodeLine{641     \textcolor{keyword}{auto} v2 = findVertex(dest);}
+\DoxyCodeLine{642     \textcolor{keywordflow}{if} (v1 == \textcolor{keyword}{nullptr} || v2 == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{643         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{644     \textcolor{keyword}{auto} e1 = v1-\/>addEdge(v2, w);}
+\DoxyCodeLine{645     \textcolor{keyword}{auto} e2 = v2-\/>addEdge(v1, w);}
+\DoxyCodeLine{646     e1-\/>setReverse(e2);}
+\DoxyCodeLine{647     e2-\/>setReverse(e1);}
+\DoxyCodeLine{648     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{649 \}}
+\DoxyCodeLine{650 }
+\DoxyCodeLine{651 \textcolor{comment}{/****************** DFS ********************/}}
+\DoxyCodeLine{652 }
+\DoxyCodeLine{653 \textcolor{comment}{/*}}
+\DoxyCodeLine{654 \textcolor{comment}{ * Performs a depth-\/first search (dfs) traversal in a graph (this).}}
+\DoxyCodeLine{655 \textcolor{comment}{ * Returns a vector with the contents of the vertices by dfs order.}}
+\DoxyCodeLine{656 \textcolor{comment}{ */}}
+\DoxyCodeLine{657 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{658 std::vector<T> \mbox{\hyperlink{class_graph_a1243f481d9929b890dbafe18cc3d8259}{Graph<T>::dfs}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{659     std::vector<T> res;}
+\DoxyCodeLine{660     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet)}
+\DoxyCodeLine{661         v-\/>setVisited(\textcolor{keyword}{false});}
+\DoxyCodeLine{662     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet)}
+\DoxyCodeLine{663         \textcolor{keywordflow}{if} (!v-\/>isVisited())}
+\DoxyCodeLine{664             dfsVisit(v, res);}
+\DoxyCodeLine{665     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{666 \}}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{668 \textcolor{comment}{/*}}
+\DoxyCodeLine{669 \textcolor{comment}{ * Performs a depth-\/first search (dfs) in a graph (this) from the source node.}}
+\DoxyCodeLine{670 \textcolor{comment}{ * Returns a vector with the contents of the vertices by dfs order.}}
+\DoxyCodeLine{671 \textcolor{comment}{ */}}
+\DoxyCodeLine{672 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{673 std::vector<T> \mbox{\hyperlink{class_graph_a1243f481d9929b890dbafe18cc3d8259}{Graph<T>::dfs}}(\textcolor{keyword}{const} T \&source)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{674     std::vector<int> res;}
+\DoxyCodeLine{675     \textcolor{comment}{// Get the source vertex}}
+\DoxyCodeLine{676     \textcolor{keyword}{auto} s = findVertex(source);}
+\DoxyCodeLine{677     \textcolor{keywordflow}{if} (s == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{678         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{679     \}}
+\DoxyCodeLine{680     \textcolor{comment}{// Set that no vertex has been visited yet}}
+\DoxyCodeLine{681     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{682         v-\/>setVisited(\textcolor{keyword}{false});}
+\DoxyCodeLine{683     \}}
+\DoxyCodeLine{684     \textcolor{comment}{// Perform the actual DFS using recursion}}
+\DoxyCodeLine{685     dfsVisit(s, res);}
+\DoxyCodeLine{686 }
+\DoxyCodeLine{687     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{688 \}}
+\DoxyCodeLine{689 }
+\DoxyCodeLine{690 \textcolor{comment}{/*}}
+\DoxyCodeLine{691 \textcolor{comment}{ * Auxiliary function that visits a vertex (v) and its adjacent, recursively.}}
+\DoxyCodeLine{692 \textcolor{comment}{ * Updates a parameter with the list of visited node contents.}}
+\DoxyCodeLine{693 \textcolor{comment}{ */}}
+\DoxyCodeLine{694 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{695 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a468b6d9b6b1899d4c885324ed14e4f8a}{Graph<T>::dfsVisit}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v, std::vector<T> \&res)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{696     v-\/>\mbox{\hyperlink{class_vertex_a95a3f3c55f2ba371fae51d3fe0e76c23}{setVisited}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{697     res.push\_back(v-\/>\mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}());}
+\DoxyCodeLine{698     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&e: v-\/>\mbox{\hyperlink{class_vertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}()) \{}
+\DoxyCodeLine{699         \textcolor{keyword}{auto} w = e-\/>getDest();}
+\DoxyCodeLine{700         \textcolor{keywordflow}{if} (!w-\/>isVisited()) \{}
+\DoxyCodeLine{701             dfsVisit(w, res);}
+\DoxyCodeLine{702         \}}
+\DoxyCodeLine{703     \}}
+\DoxyCodeLine{704 \}}
+\DoxyCodeLine{705 }
+\DoxyCodeLine{706 \textcolor{comment}{/****************** BFS ********************/}}
+\DoxyCodeLine{707 \textcolor{comment}{/*}}
+\DoxyCodeLine{708 \textcolor{comment}{ * Performs a breadth-\/first search (bfs) in a graph (this), starting}}
+\DoxyCodeLine{709 \textcolor{comment}{ * from the vertex with the given source contents (source).}}
+\DoxyCodeLine{710 \textcolor{comment}{ * Returns a vector with the contents of the vertices by bfs order.}}
+\DoxyCodeLine{711 \textcolor{comment}{ */}}
+\DoxyCodeLine{712 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{713 std::vector<T> \mbox{\hyperlink{class_graph_a4b211a9a1e49216603e6a676df8138ec}{Graph<T>::bfs}}(\textcolor{keyword}{const} T \&source)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{714     std::vector<int> res;}
+\DoxyCodeLine{715     \textcolor{comment}{// Get the source vertex}}
+\DoxyCodeLine{716     \textcolor{keyword}{auto} s = findVertex(source);}
+\DoxyCodeLine{717     \textcolor{keywordflow}{if} (s == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{718         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{719     \}}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{721     \textcolor{comment}{// Set that no vertex has been visited yet}}
+\DoxyCodeLine{722     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{723         v-\/>setVisited(\textcolor{keyword}{false});}
+\DoxyCodeLine{724     \}}
+\DoxyCodeLine{725 }
+\DoxyCodeLine{726     \textcolor{comment}{// Perform the actual BFS using a queue}}
+\DoxyCodeLine{727     std::queue<Vertex<T> *> q;}
+\DoxyCodeLine{728     q.push(s);}
+\DoxyCodeLine{729     s-\/>setVisited(\textcolor{keyword}{true});}
+\DoxyCodeLine{730     \textcolor{keywordflow}{while} (!q.empty()) \{}
+\DoxyCodeLine{731         \textcolor{keyword}{auto} v = q.front();}
+\DoxyCodeLine{732         q.pop();}
+\DoxyCodeLine{733         res.push\_back(v-\/>getInfo());}
+\DoxyCodeLine{734         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&e: v-\/>getAdj()) \{}
+\DoxyCodeLine{735             \textcolor{keyword}{auto} w = e-\/>getDest();}
+\DoxyCodeLine{736             \textcolor{keywordflow}{if} (!w-\/>isVisited()) \{}
+\DoxyCodeLine{737                 q.push(w);}
+\DoxyCodeLine{738                 w-\/>setVisited(\textcolor{keyword}{true});}
+\DoxyCodeLine{739             \}}
+\DoxyCodeLine{740         \}}
+\DoxyCodeLine{741     \}}
+\DoxyCodeLine{742     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{743 \}}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{745 \textcolor{comment}{/****************** isDAG  ********************/}}
+\DoxyCodeLine{746 \textcolor{comment}{/*}}
+\DoxyCodeLine{747 \textcolor{comment}{ * Performs a depth-\/first search in a graph (this), to determine if the graph}}
+\DoxyCodeLine{748 \textcolor{comment}{ * is acyclic (acyclic directed graph or DAG).}}
+\DoxyCodeLine{749 \textcolor{comment}{ * During the search, a cycle is found if an edge connects to a vertex}}
+\DoxyCodeLine{750 \textcolor{comment}{ * that is being processed in the stack of recursive calls (see theoretical classes).}}
+\DoxyCodeLine{751 \textcolor{comment}{ * Returns true if the graph is acyclic, and false otherwise.}}
+\DoxyCodeLine{752 \textcolor{comment}{ */}}
+\DoxyCodeLine{753 }
+\DoxyCodeLine{754 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{755 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}{Graph<T>::isDAG}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{756     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{757         v-\/>setVisited(\textcolor{keyword}{false});}
+\DoxyCodeLine{758         v-\/>setProcesssing(\textcolor{keyword}{false});}
+\DoxyCodeLine{759     \}}
+\DoxyCodeLine{760     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{761         \textcolor{keywordflow}{if} (!v-\/>isVisited()) \{}
+\DoxyCodeLine{762             \textcolor{keywordflow}{if} (!dfsIsDAG(v)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{763         \}}
+\DoxyCodeLine{764     \}}
+\DoxyCodeLine{765     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{766 \}}
+\DoxyCodeLine{767 }
+\DoxyCodeLine{772 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{773 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a06743c0b3e219cfeefa5aade38556cb7}{Graph<T>::dfsIsDAG}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{774     v-\/>\mbox{\hyperlink{class_vertex_a95a3f3c55f2ba371fae51d3fe0e76c23}{setVisited}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{775     v-\/>\mbox{\hyperlink{class_vertex_aac570fc2a4d252082bef2f18365bf9f2}{setProcesssing}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{776     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} e: v-\/>\mbox{\hyperlink{class_vertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}()) \{}
+\DoxyCodeLine{777         \textcolor{keyword}{auto} w = e-\/>getDest();}
+\DoxyCodeLine{778         \textcolor{keywordflow}{if} (w-\/>isProcessing()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{779         \textcolor{keywordflow}{if} (!w-\/>isVisited()) \{}
+\DoxyCodeLine{780             \textcolor{keywordflow}{if} (!dfsIsDAG(w)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{781         \}}
+\DoxyCodeLine{782     \}}
+\DoxyCodeLine{783     v-\/>\mbox{\hyperlink{class_vertex_aac570fc2a4d252082bef2f18365bf9f2}{setProcesssing}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{784     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{785 \}}
+\DoxyCodeLine{786 }
+\DoxyCodeLine{787 \textcolor{comment}{/****************** toposort ********************/}}
+\DoxyCodeLine{788 \textcolor{comment}{//=============================================================================}}
+\DoxyCodeLine{789 \textcolor{comment}{// Exercise 1: Topological Sorting}}
+\DoxyCodeLine{790 \textcolor{comment}{//=============================================================================}}
+\DoxyCodeLine{791 \textcolor{comment}{// TODO}}
+\DoxyCodeLine{792 \textcolor{comment}{/*}}
+\DoxyCodeLine{793 \textcolor{comment}{ * Performs a topological sorting of the vertices of a graph (this).}}
+\DoxyCodeLine{794 \textcolor{comment}{ * Returns a vector with the contents of the vertices by topological order.}}
+\DoxyCodeLine{795 \textcolor{comment}{ * If the graph has cycles, returns an empty vector.}}
+\DoxyCodeLine{796 \textcolor{comment}{ * Follows the algorithm described in theoretical classes.}}
+\DoxyCodeLine{797 \textcolor{comment}{ */}}
+\DoxyCodeLine{798 }
+\DoxyCodeLine{799 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{800 std::vector<T> \mbox{\hyperlink{class_graph_ab8c7720cd8fcba892d4550494e91b8d4}{Graph<T>::topsort}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{801     std::vector<int> res;}
+\DoxyCodeLine{802 }
+\DoxyCodeLine{803     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{804         v-\/>setIndegree(0);}
+\DoxyCodeLine{805     \}}
+\DoxyCodeLine{806     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{807         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} e: v-\/>getAdj()) \{}
+\DoxyCodeLine{808             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indegree = e-\/>getDest()-\/>getIndegree();}
+\DoxyCodeLine{809             e-\/>getDest()-\/>setIndegree(indegree + 1);}
+\DoxyCodeLine{810         \}}
+\DoxyCodeLine{811     \}}
+\DoxyCodeLine{812 }
+\DoxyCodeLine{813     std::queue<Vertex<T> *> q;}
+\DoxyCodeLine{814     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v: vertexSet) \{}
+\DoxyCodeLine{815         \textcolor{keywordflow}{if} (v-\/>getIndegree() == 0) \{}
+\DoxyCodeLine{816             q.push(v);}
+\DoxyCodeLine{817         \}}
+\DoxyCodeLine{818     \}}
+\DoxyCodeLine{819 }
+\DoxyCodeLine{820     \textcolor{keywordflow}{while} (!q.empty()) \{}
+\DoxyCodeLine{821         \mbox{\hyperlink{class_vertex}{Vertex<T>}} *v = q.front();}
+\DoxyCodeLine{822         q.pop();}
+\DoxyCodeLine{823         res.push\_back(v-\/>\mbox{\hyperlink{class_vertex_a48eae2f7af2362634adab02b7b2dbec6}{getInfo}}());}
+\DoxyCodeLine{824         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} e: v-\/>\mbox{\hyperlink{class_vertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}{getAdj}}()) \{}
+\DoxyCodeLine{825             \textcolor{keyword}{auto} w = e-\/>getDest();}
+\DoxyCodeLine{826             w-\/>\mbox{\hyperlink{class_vertex_af9c4caaac19bdaae5a88a7a671639b59}{setIndegree}}(w-\/>getIndegree() -\/ 1);}
+\DoxyCodeLine{827             \textcolor{keywordflow}{if} (w-\/>getIndegree() == 0) \{}
+\DoxyCodeLine{828                 q.push(w);}
+\DoxyCodeLine{829             \}}
+\DoxyCodeLine{830         \}}
+\DoxyCodeLine{831     \}}
+\DoxyCodeLine{832 }
+\DoxyCodeLine{833     \textcolor{keywordflow}{if} (res.size() != vertexSet.size()) \{}
+\DoxyCodeLine{834         \textcolor{comment}{//std::cout << "{}Impossible topological ordering!"{} << std::endl;}}
+\DoxyCodeLine{835         res.clear();}
+\DoxyCodeLine{836         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{837     \}}
+\DoxyCodeLine{838 }
+\DoxyCodeLine{839     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{840 \}}
+\DoxyCodeLine{841 }
+\DoxyCodeLine{842 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{int} **m, \textcolor{keywordtype}{int} n) \{}
+\DoxyCodeLine{843     \textcolor{keywordflow}{if} (m != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{844         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++)}
+\DoxyCodeLine{845             \textcolor{keywordflow}{if} (m[i] != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{846                 \textcolor{keyword}{delete}[] m[i];}
+\DoxyCodeLine{847         \textcolor{keyword}{delete}[] m;}
+\DoxyCodeLine{848     \}}
+\DoxyCodeLine{849 \}}
+\DoxyCodeLine{850 }
+\DoxyCodeLine{851 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{double} **m, \textcolor{keywordtype}{int} n) \{}
+\DoxyCodeLine{852     \textcolor{keywordflow}{if} (m != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{853         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++)}
+\DoxyCodeLine{854             \textcolor{keywordflow}{if} (m[i] != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{855                 \textcolor{keyword}{delete}[] m[i];}
+\DoxyCodeLine{856         \textcolor{keyword}{delete}[] m;}
+\DoxyCodeLine{857     \}}
+\DoxyCodeLine{858 \}}
+\DoxyCodeLine{859 }
+\DoxyCodeLine{860 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{861 \mbox{\hyperlink{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}{Graph<T>::\string~Graph}}() \{}
+\DoxyCodeLine{862     \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(distMatrix, vertexSet.size());}
+\DoxyCodeLine{863     \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(pathMatrix, vertexSet.size());}
+\DoxyCodeLine{864 \}}
+\DoxyCodeLine{865 }
+\DoxyCodeLine{866 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DA\_TP\_CLASSES\_GRAPH */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
